@@ -1,0 +1,16 @@
+.logo{
+    font-size: 40px;
+    font-weight: 500;
+}
+
+.nav-link{
+    font-size: 18px;
+    color: #212934;
+}
+.iconos i{
+    width: 29px;
+}
+
+.card{
+    border: 0;
+}

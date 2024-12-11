@@ -9,11 +9,16 @@
 </head>
 <body>
     <header class="ps-5 pe-5">
-        <nav class="navbar navbar-expand-lg">
-            <div class="navbar-collapse justify-content-between">
-                <div class="d-flex align-items-center col-2"> 
-                    <h1 class="logo navbar-brand me-5">TIENDA</h1>
-                    <ul class="navbar-nav gap-2">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="d-flex align-items-center col-2"> 
+                <h1 class="logo navbar-brand me-5">TIENDA</h1>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse">
+                <div class="d-flex justify-content-between w-100">
+                    <ul class="navbar-nav gap-2 col-lg-2">
                         <li class="nav-item">
                             <a class="nav-link" href="">Hombres</a>
                         </li>
@@ -21,24 +26,112 @@
                             <a class="nav-link" href="">Mujeres</a>
                         </li>
                     </ul>
-                </div>
-                <form class="form-inline d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Busqueda" aria-label="Busqueda">
-                    <button class="btn btn-outline-primary" type="submit">Buscar</button>
-                </form>
-                <div class="iconos col-2 d-flex justify-content-end">
-                    <a class="nav-icon position-relative text-decoration-none" href="#">
-                        <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
-                    </a>
-                    <a class="nav-icon position-relative text-decoration-none" href="#">
-                        <i class="fa fa-fw fa-user text-dark mr-3"></i>
-                    </a>
+                    <div class="w-100 row justify-content-center align-items-center">
+                        <form class="form-inline d-flex col-8" role="search">
+                            <div class="form-group w-100">
+                                <input class="form-control me-2" type="search" placeholder="Busqueda" aria-label="Busqueda">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="iconos col-2 d-flex justify-content-end">
+                        <ul class="navbar-nav gap-4">
+                            <li class="nav-item dropdown  d-none d-lg-flex">
+                                <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa fa-user text-dark fa-xl"></i>
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="#">Iniciar Sesion</a></li>
+                                    <li><a class="dropdown-item" href="#">Registrarse</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link position-relative text-decoration-none" href="" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <i class="fa fa-cart-arrow-down text-dark fa-xl"></i>
+                                </a>
+                            </li>
+                        </ul>                 
+                    </div>
                 </div>
             </div>
         </nav>
     </header>
 
-    <div id="carouselRopa" class="carousel slide">
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content px-5">
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row justify-content-between mt-4">
+                            <div class="col-auto">
+                                <p>Carrito</p>
+                            </div>
+                            <div class="col-auto">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center mt-5">
+                            <div class="col-auto">
+                                <span style="color: #ddd;">
+                                    <i class="fas fa-cart-shopping fa-2x"></i>
+                                </span>
+                            </div>
+                            <div class="col-12 text-center mt-4">
+                                <p class="text-muted">No tienes productos en tu carrito</p>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center mt-5 mb-5">
+                            <div class="col-auto">
+                                <a href="" class="btn btn-outline-dark">Continuar comprando</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasScrollingLabel"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body row">
+        <div class="w-100 row justify-content-center align-items-center">
+            <form class="form-inline d-flex col-10" role="search">
+                <div class="form-group w-100">
+                    <input class="form-control me-2" type="search" placeholder="Busqueda" aria-label="Busqueda">
+                </div>
+            </form>
+        </div>
+        <ul class="navbar-nav gap-2 px-5">
+            <li class="nav-item d-flex justify-content-between align-items-center">
+                <a class="nav-link" href="">Hombres</a>
+                <i class="fas fa-angle-right"></i>
+            </li>
+            <li class="nav-item d-flex justify-content-between align-items-center">
+                <a class="nav-link" href="">Mujeres</a>
+                <i class="fas fa-angle-right"></i>
+            </li>
+        </ul>
+        <ul class="navbar-nav gap-2 px-5 align-self-end mb-5">
+            <li class="nav-item d-flex justify-content-between align-items-center">
+                <a class="nav-link" href="">Iniciar Sesion</a>
+                <i class="fas fa-user"></i>
+            </li>
+            <li class="nav-item d-flex justify-content-between align-items-center">
+                <a class="nav-link" href="">Registrarse</a>
+                <i class="fas fa-user-plus"></i>
+            </li>
+            <li class="nav-item d-flex justify-content-between align-items-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <p>Carrito</p>
+                <i class="fas fa-cart-shopping"></i>
+            </li>
+        </ul>
+    </div>
+    </div>
+
+    <div id="carouselRopa" class="carousel slide d-lg-flex d-none">
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <img src="img/Banner 1.jpg" class="d-block w-100">
@@ -58,8 +151,8 @@
     </div>
 
     <section class="container mt-5 mb-5">
-        <div class="row justify-content-around">
-            <div class="card col-4 position-relative" style="color: rgb(255, 255, 255);">
+        <div class="row justify-content-around gap-sm-0 gap-4">
+            <div class="card col-lg-4 col-sm-6 col-10 position-relative" style="color: rgb(255, 255, 255);">
                 <img class="img-fluid" src="img/Card-Mujeres.jpg" alt="Title" />
                 <div class="position-absolute row align-items-center top-0 start-0 w-100 h-100">
                     <div class="col text-center">
@@ -68,8 +161,8 @@
                     </div>
                 </div>
             </div>
-            <div class="card col-4 position-relative" style="color: rgb(255, 255, 255);">
-                <img class="img-fluid" src="img/Card-Hombres.jpg" alt="Title" />
+            <div class="card col-lg-4 col-sm-6 col-10 position-relative" style="color: rgb(255, 255, 255);">
+                <img class="img-fluid h-100" src="img/Card-Hombres.jpg" alt="Title" />
                 <div class="position-absolute row align-items-center top-0 start-0 w-100 h-100">
                     <div class="col text-center">
                         <h4>Ropa de Hombre</h4>
@@ -83,7 +176,7 @@
     <hr>
 
     <section>
-        <div class="container py-5  ">
+        <div class="container py-5">
             <div class="row text-center pt-3 mb-5">
                 <div class="col-lg-6 m-auto">
                     <h2 class="h1">Productos mas valorados</h2>
@@ -93,26 +186,7 @@
                 </div>
             </div>
             <div class="row justify-content-around">
-                <div class="card col-3">
-                    <img src="img/Producto1.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <ul class="list-unstyled d-flex justify-content-between">
-                            <li>
-                                <i class="text-warning fa fa-star"></i>
-                                <i class="text-warning fa fa-star"></i>
-                                <i class="text-muted fa fa-star">a</i>
-                                <i class="text-muted fa fa-star"></i>
-                                <i class="text-muted fa fa-star"></i>
-                            </li>
-                            <li class="text-muted text-right">$14.99</li>
-                        </ul>
-                        <a href="" class="h2 text-decoration-none text-dark">Camiseta negra </a>
-                        <p class="card-text">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt in culpa qui officia deserunt.
-                        </p>
-                    </div>
-                </div>
-                <div class="card col-3">
+                <div class="card col-lg-3 col-sm-5 col-10 mb-4">
                     <img src="img/Producto1.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <ul class="list-unstyled d-flex justify-content-between">
@@ -131,7 +205,26 @@
                         </p>
                     </div>
                 </div>
-                <div class="card col-3">
+                <div class="card col-lg-3 col-sm-5 col-10 mb-4">
+                    <img src="img/Producto1.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <ul class="list-unstyled d-flex justify-content-between">
+                            <li>
+                                <i class="text-warning fa fa-star"></i>
+                                <i class="text-warning fa fa-star"></i>
+                                <i class="text-muted fa fa-star"></i>
+                                <i class="text-muted fa fa-star"></i>
+                                <i class="text-muted fa fa-star"></i>
+                            </li>
+                            <li class="text-muted text-right">$14.99</li>
+                        </ul>
+                        <a href="" class="h2 text-decoration-none text-dark">Camiseta negra </a>
+                        <p class="card-text">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt in culpa qui officia deserunt.
+                        </p>
+                    </div>
+                </div>
+                <div class="card col-lg-3 col-sm-5 col-10 mb-4">
                     <img src="img/Producto1.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <ul class="list-unstyled d-flex justify-content-between">
@@ -154,58 +247,75 @@
         </div>        
     </section>
 
+    <section class="container text-center w-50 mt-5">
+        <h4>Ofertas</h4>
+        <p>Enterate de las nuevas ofertas apenas salgan!!</p>
+        <form action="" class="mt-4 mb-5">
+            <div class="form-inline d-flex justify-content-center gap-3">
+                <div class="form-check">
+                    <label for="mujer" class="form-check-label">
+                        <input type="radio" name="sexo" id="mujer" class="form-check-input"> Mujer
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label for="hombre" class="form-check-label">
+                        <input type="radio" name="sexo" id="hombre" class="form-check-input"> Hombre
+                    </label>
+                </div> 
+            </div>
+            <div class="form-inline d-flex justify-content-center gap-3 gap-md-0 mt-4 row">
+                <div class="form-group col-md-4 col-12">
+                    <input type="text" class="form-control" placeholder="Nombre">
+                </div>
+                <div class="form-group col-md-4 col-12">
+                    <input type="text" class="form-control" placeholder="Apellido">
+                </div>
+            </div>
+            <div class="form-group mt-3">
+                <input type="email" name="" id="" placeholder="Correo" class="form-control">
+            </div>
+            <div class="form-check m-4">
+                <label class="form-check-label" for="terminos">
+                    <input class="form-check-input" type="checkbox" value="" id="terminos" /> He leido y acepto los terminos de la politica de privacidad. 
+                </label>
+            </div>
+            <input type="submit" value="Suscribirse" class="btn btn-primary btn-lg">
+        </form>
+    </section>
+
     <footer class="bg-dark">
         <div class="container">
-            <div class="row">
+            <div class="row justify-content-around">
                 <div class="col-md-4 pt-5">
-                    <h2 class="h2 text-success border-bottom pb-3 border-light logo">Zay Shop</h2>
+                    <h4 class="text-light border-bottom pb-3 border-light">Tienda</h4>
                     <ul class="list-unstyled text-light footer-link-list">
                         <li>
                             <i class="fas fa-map-marker-alt fa-fw"></i>
-                            123 Consectetur at ligula 10660
+                            Universidad de las Fuerzas Armadas ESPE
                         </li>
                         <li>
                             <i class="fa fa-phone fa-fw"></i>
-                            <a class="text-decoration-none" href="tel:010-020-0340">010-020-0340</a>
+                            <a class="text-decoration-none" href="">0980098210</a>
                         </li>
                         <li>
                             <i class="fa fa-envelope fa-fw"></i>
-                            <a class="text-decoration-none" href="mailto:info@company.com">info@company.com</a>
+                            <a class="text-decoration-none" href="">jfgalarza5@espe.edu.ec</a>
                         </li>
                     </ul>
                 </div>
 
                 <div class="col-md-4 pt-5">
-                    <h2 class="h2 text-light border-bottom pb-3 border-light">Products</h2>
+                    <h4 class="text-light border-bottom pb-3 border-light">Explora</h4>
                     <ul class="list-unstyled text-light footer-link-list">
-                        <li><a class="text-decoration-none" href="#">Luxury</a></li>
-                        <li><a class="text-decoration-none" href="#">Sport Wear</a></li>
-                        <li><a class="text-decoration-none" href="#">Men's Shoes</a></li>
-                        <li><a class="text-decoration-none" href="#">Women's Shoes</a></li>
-                        <li><a class="text-decoration-none" href="#">Popular Dress</a></li>
-                        <li><a class="text-decoration-none" href="#">Gym Accessories</a></li>
-                        <li><a class="text-decoration-none" href="#">Sport Shoes</a></li>
+                        <li><a class="text-decoration-none" href="index.html">Inicio</a></li>
+                        <li><a class="text-decoration-none" href="">Conocenos</a></li>
+                        <li><a class="text-decoration-none" href="">Hombres</a></li>
+                        <li><a class="text-decoration-none" href="">Mujeres</a></li>
                     </ul>
                 </div>
 
                 <div class="col-md-4 pt-5">
-                    <h2 class="h2 text-light border-bottom pb-3 border-light">Further Info</h2>
-                    <ul class="list-unstyled text-light footer-link-list">
-                        <li><a class="text-decoration-none" href="#">Home</a></li>
-                        <li><a class="text-decoration-none" href="#">About Us</a></li>
-                        <li><a class="text-decoration-none" href="#">Shop Locations</a></li>
-                        <li><a class="text-decoration-none" href="#">FAQs</a></li>
-                        <li><a class="text-decoration-none" href="#">Contact</a></li>
-                    </ul>
-                </div>
-
-            </div>
-
-            <div class="row text-light mb-4">
-                <div class="col-12 mb-3">
-                    <div class="w-100 my-3 border-top border-light"></div>
-                </div>
-                <div class="col-auto me-auto">
+                    <h4 class="text-light border-bottom pb-3 border-light">Redes Sociales</h4>
                     <ul class="list-inline text-left footer-icons">
                         <li class="list-inline-item border border-light rounded-circle text-center">
                             <a class="text-light text-decoration-none" target="_blank" href="http://facebook.com/"><i class="fab fa-facebook-f fa-lg fa-fw"></i></a>
@@ -221,14 +331,9 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-auto">
-                    <label class="sr-only" for="subscribeEmail">Email address</label>
-                    <div class="input-group mb-2">
-                        <input type="text" class="form-control bg-dark border-light" id="subscribeEmail" placeholder="Email address">
-                        <div class="input-group-text btn-success text-light">Subscribe</div>
-                    </div>
-                </div>
             </div>
+
+            <hr class="bg-light">
         </div>
 
         <div class="w-100 bg-black py-3">
@@ -236,8 +341,7 @@
                 <div class="row pt-2">
                     <div class="col-12">
                         <p class="text-left text-light">
-                            Copyright &copy; 2021 Company Name 
-                            | Designed by <a rel="sponsored" href="https://templatemo.com" target="_blank">TemplateMo</a>
+                            Copyright &copy; 2024 
                         </p>
                     </div>
                 </div>
@@ -246,7 +350,8 @@
 
     </footer>
 
-    <script src="js/bootstrap.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    
     <script src="https://kit.fontawesome.com/5f232b4c5b.js" crossorigin="anonymous"></script>
 </body>
 </html>

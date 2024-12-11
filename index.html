@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Inicio</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -11,7 +11,7 @@
     <header class="ps-5 pe-5">
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="d-flex align-items-center col-2"> 
-                <h1 class="logo navbar-brand me-5">TIENDA</h1>
+                <h1 class="logo navbar-brand me-5">Mathion</h1>
             </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
                 <span class="navbar-toggler-icon"></span>
@@ -20,10 +20,10 @@
                 <div class="d-flex justify-content-between w-100">
                     <ul class="navbar-nav gap-2 col-lg-2">
                         <li class="nav-item">
-                            <a class="nav-link" href="">Hombres</a>
+                            <a class="nav-link" href="hombres.html">Hombres</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="">Mujeres</a>
+                            <a class="nav-link" href="mujeres.html">Mujeres</a>
                         </li>
                     </ul>
                     <div class="w-100 row justify-content-center align-items-center">
@@ -40,8 +40,8 @@
                                     <i class="fa fa-user text-dark fa-xl"></i>
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="#">Iniciar Sesion</a></li>
-                                    <li><a class="dropdown-item" href="#">Registrarse</a></li>
+                                    <li><a class="dropdown-item" href="login.html">Iniciar Sesion</a></li>
+                                    <li><a class="dropdown-item" href="registro.html">Registrarse</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item">
@@ -92,43 +92,43 @@
     </div>
 
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
-    <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasScrollingLabel"></h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body row">
-        <div class="w-100 row justify-content-center align-items-center">
-            <form class="form-inline d-flex col-10" role="search">
-                <div class="form-group w-100">
-                    <input class="form-control me-2" type="search" placeholder="Busqueda" aria-label="Busqueda">
-                </div>
-            </form>
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasScrollingLabel"></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
-        <ul class="navbar-nav gap-2 px-5">
-            <li class="nav-item d-flex justify-content-between align-items-center">
-                <a class="nav-link" href="">Hombres</a>
-                <i class="fas fa-angle-right"></i>
-            </li>
-            <li class="nav-item d-flex justify-content-between align-items-center">
-                <a class="nav-link" href="">Mujeres</a>
-                <i class="fas fa-angle-right"></i>
-            </li>
-        </ul>
-        <ul class="navbar-nav gap-2 px-5 align-self-end mb-5">
-            <li class="nav-item d-flex justify-content-between align-items-center">
-                <a class="nav-link" href="">Iniciar Sesion</a>
-                <i class="fas fa-user"></i>
-            </li>
-            <li class="nav-item d-flex justify-content-between align-items-center">
-                <a class="nav-link" href="">Registrarse</a>
-                <i class="fas fa-user-plus"></i>
-            </li>
-            <li class="nav-item d-flex justify-content-between align-items-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                <p>Carrito</p>
-                <i class="fas fa-cart-shopping"></i>
-            </li>
-        </ul>
-    </div>
+        <div class="offcanvas-body row">
+            <div class="w-100 row justify-content-center align-items-center">
+                <form class="form-inline d-flex col-10" role="search">
+                    <div class="form-group w-100">
+                        <input class="form-control me-2" type="search" placeholder="Busqueda" aria-label="Busqueda">
+                    </div>
+                </form>
+            </div>
+            <ul class="navbar-nav gap-2 px-5">
+                <li class="nav-item d-flex justify-content-between align-items-center">
+                    <a class="nav-link" href="hombres.html">Hombres</a>
+                    <i class="fas fa-angle-right"></i>
+                </li>
+                <li class="nav-item d-flex justify-content-between align-items-center">
+                    <a class="nav-link" href="mujeres.html">Mujeres</a>
+                    <i class="fas fa-angle-right"></i>
+                </li>
+            </ul>
+            <ul class="navbar-nav gap-2 px-5 align-self-end mb-5">
+                <li class="nav-item d-flex justify-content-between align-items-center">
+                    <a class="nav-link" href="login.html">Iniciar Sesion</a>
+                    <i class="fas fa-user"></i>
+                </li>
+                <li class="nav-item d-flex justify-content-between align-items-center">
+                    <a class="nav-link" href="registro.html">Registrarse</a>
+                    <i class="fas fa-user-plus"></i>
+                </li>
+                <li class="nav-item d-flex justify-content-between align-items-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <p>Carrito</p>
+                    <i class="fas fa-cart-shopping"></i>
+                </li>
+            </ul>
+        </div>
     </div>
 
     <div id="carouselRopa" class="carousel slide d-lg-flex d-none">
@@ -287,7 +287,7 @@
         <div class="container">
             <div class="row justify-content-around">
                 <div class="col-md-4 pt-5">
-                    <h4 class="text-light border-bottom pb-3 border-light">Tienda</h4>
+                    <h4 class="text-light border-bottom pb-3 border-light">Mathion Shop</h4>
                     <ul class="list-unstyled text-light footer-link-list">
                         <li>
                             <i class="fas fa-map-marker-alt fa-fw"></i>
@@ -341,7 +341,7 @@
                 <div class="row pt-2">
                     <div class="col-12">
                         <p class="text-left text-light">
-                            Copyright &copy; 2024 
+                            Copyright &copy; 2024 Mathion Shop
                         </p>
                     </div>
                 </div>

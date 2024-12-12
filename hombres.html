@@ -10,6 +10,129 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="bg-light">
+    <header class="ps-5 pe-5 bg-white">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="d-flex align-items-center col-2"> 
+                <a class="logo navbar-brand me-5" href="index.html">Mathion</a>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse">
+                <div class="d-flex justify-content-between w-100">
+                    <ul class="navbar-nav gap-2 col-lg-2">
+                        <li class="nav-item">
+                            <a class="nav-link" href="hombres.html">Hombres</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="mujeres.html">Mujeres</a>
+                        </li>
+                    </ul>
+                    <div class="w-100 row justify-content-center align-items-center">
+                        <form class="form-inline d-flex col-8" role="search">
+                            <div class="form-group w-100">
+                                <input class="form-control me-2 border-top-0 border-end-0 border-start-0" type="search" placeholder="Busqueda" aria-label="Busqueda">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="iconos col-2 d-flex justify-content-end">
+                        <ul class="navbar-nav gap-4">
+                            <li class="nav-item dropdown  d-none d-lg-flex">
+                                <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa fa-user text-dark fa-xl"></i>
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="login.html">Iniciar Sesion</a></li>
+                                    <li><a class="dropdown-item" href="registro.html">Registrarse</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link position-relative text-decoration-none" href="" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <i class="fa fa-cart-arrow-down text-dark fa-xl"></i>
+                                </a>
+                            </li>
+                        </ul>                 
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content px-5">
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row justify-content-between mt-4">
+                            <div class="col-auto">
+                                <p>Carrito</p>
+                            </div>
+                            <div class="col-auto">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center mt-5">
+                            <div class="col-auto">
+                                <span style="color: #ddd;">
+                                    <i class="fas fa-cart-shopping fa-2x"></i>
+                                </span>
+                            </div>
+                            <div class="col-12 text-center mt-4">
+                                <p class="text-muted">No tienes productos en tu carrito</p>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center mt-5 mb-5">
+                            <div class="col-auto">
+                                <a href="" class="btn btn-outline-dark">Continuar comprando</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasScrollingLabel"></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body row">
+            <div class="w-100 row justify-content-center align-items-center">
+                <form class="form-inline d-flex col-10" role="search">
+                    <div class="form-group w-100">
+                        <input class="form-control me-2 " type="search" placeholder="Busqueda" aria-label="Busqueda">
+                    </div>
+                </form>
+            </div>
+            <ul class="navbar-nav gap-2 px-5">
+                <li class="nav-item d-flex justify-content-between align-items-center">
+                    <a class="nav-link" href="hombres.html">Hombres</a>
+                    <i class="fas fa-angle-right"></i>
+                </li>
+                <li class="nav-item d-flex justify-content-between align-items-center">
+                    <a class="nav-link" href="mujeres.html">Mujeres</a>
+                    <i class="fas fa-angle-right"></i>
+                </li>
+            </ul>
+            <ul class="navbar-nav gap-2 px-5 align-self-end mb-5">
+                <li class="nav-item d-flex justify-content-between align-items-center">
+                    <a class="nav-link" href="login.html">Iniciar Sesion</a>
+                    <i class="fas fa-user"></i>
+                </li>
+                <li class="nav-item d-flex justify-content-between align-items-center">
+                    <a class="nav-link" href="registro.html">Registrarse</a>
+                    <i class="fas fa-user-plus"></i>
+                </li>
+                <li class="nav-item d-flex justify-content-between align-items-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <p>Carrito</p>
+                    <i class="fas fa-cart-shopping"></i>
+                </li>
+            </ul>
+        </div>
+    </div>
+
     <div class="container py-5">
         <h1 class="text-center text-black mb-4 title-stylish">Productos Estelares Masculinos</h1>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 ">
@@ -85,7 +208,6 @@
                     </div>
                 </div>
             </div>
-
            
             <div class="col mb-4">
                 <div class="card h-100 shadow-sm">
@@ -147,7 +269,72 @@
             </div>
         </div>
     </div>
+    <footer class="bg-dark mt-5">
+        <div class="container">
+            <div class="row justify-content-around">
+                <div class="col-md-4 pt-5">
+                    <h4 class="text-light border-bottom pb-3 border-light">Tienda</h4>
+                    <ul class="list-unstyled text-light footer-link-list">
+                        <li>
+                            <i class="fas fa-map-marker-alt fa-fw"></i>
+                            Universidad de las Fuerzas Armadas ESPE
+                        </li>
+                        <li>
+                            <i class="fa fa-phone fa-fw"></i>
+                            <a class="text-decoration-none" href="">0980098210</a>
+                        </li>
+                        <li>
+                            <i class="fa fa-envelope fa-fw"></i>
+                            <a class="text-decoration-none" href="">jfgalarza5@espe.edu.ec</a>
+                        </li>
+                    </ul>
+                </div>
 
-    <script src="js/bootstrap.js"></script>
+                <div class="col-md-4 pt-5">
+                    <h4 class="text-light border-bottom pb-3 border-light">Explora</h4>
+                    <ul class="list-unstyled text-light footer-link-list">
+                        <li><a class="text-decoration-none" href="index.html">Inicio</a></li>
+                        <li><a class="text-decoration-none" href="Conocenos.html">Conocenos</a></li>
+                        <li><a class="text-decoration-none" href="hombres.html">Hombres</a></li>
+                        <li><a class="text-decoration-none" href="mujeres.html">Mujeres</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4 pt-5">
+                    <h4 class="text-light border-bottom pb-3 border-light">Redes Sociales</h4>
+                    <ul class="list-inline text-left footer-icons">
+                        <li class="list-inline-item border border-light rounded-circle text-center">
+                            <a class="text-light text-decoration-none" target="_blank" href="http://facebook.com/"><i class="fab fa-facebook-f fa-lg fa-fw"></i></a>
+                        </li>
+                        <li class="list-inline-item border border-light rounded-circle text-center">
+                            <a class="text-light text-decoration-none" target="_blank" href="https://www.instagram.com/"><i class="fab fa-instagram fa-lg fa-fw"></i></a>
+                        </li>
+                        <li class="list-inline-item border border-light rounded-circle text-center">
+                            <a class="text-light text-decoration-none" target="_blank" href="https://twitter.com/"><i class="fab fa-twitter fa-lg fa-fw"></i></a>
+                        </li>
+                        <li class="list-inline-item border border-light rounded-circle text-center">
+                            <a class="text-light text-decoration-none" target="_blank" href="https://www.linkedin.com/"><i class="fab fa-linkedin fa-lg fa-fw"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="bg-light">
+        </div>
+
+        <div class="w-100 py-3">
+            <div class="container">
+                <div class="row pt-2">
+                    <div class="col-12">
+                        <p class="text-left text-light">
+                            Copyright &copy; 2024 
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://kit.fontawesome.com/5f232b4c5b.js" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.min.js"></script>
+    
 </body>
 </html>

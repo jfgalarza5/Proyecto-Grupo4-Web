@@ -10,6 +10,129 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="bg-light">
+    <header class="ps-5 pe-5 bg-white">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="d-flex align-items-center col-2"> 
+                <a class="logo navbar-brand me-5" href="index.html">Mathion</a>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse">
+                <div class="d-flex justify-content-between w-100">
+                    <ul class="navbar-nav gap-2 col-lg-2">
+                        <li class="nav-item">
+                            <a class="nav-link" href="hombres.html">Hombres</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="mujeres.html">Mujeres</a>
+                        </li>
+                    </ul>
+                    <div class="w-100 row justify-content-center align-items-center">
+                        <form class="form-inline d-flex col-8" role="search">
+                            <div class="form-group w-100">
+                                <input class="form-control me-2 border-top-0 border-end-0 border-start-0" type="search" placeholder="Busqueda" aria-label="Busqueda">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="iconos col-2 d-flex justify-content-end">
+                        <ul class="navbar-nav gap-4">
+                            <li class="nav-item dropdown  d-none d-lg-flex">
+                                <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa fa-user text-dark fa-xl"></i>
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="login.html">Iniciar Sesion</a></li>
+                                    <li><a class="dropdown-item" href="registro.html">Registrarse</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link position-relative text-decoration-none" href="" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <i class="fa fa-cart-arrow-down text-dark fa-xl"></i>
+                                </a>
+                            </li>
+                        </ul>                 
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content px-5">
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row justify-content-between mt-4">
+                            <div class="col-auto">
+                                <p>Carrito</p>
+                            </div>
+                            <div class="col-auto">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center mt-5">
+                            <div class="col-auto">
+                                <span style="color: #ddd;">
+                                    <i class="fas fa-cart-shopping fa-2x"></i>
+                                </span>
+                            </div>
+                            <div class="col-12 text-center mt-4">
+                                <p class="text-muted">No tienes productos en tu carrito</p>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center mt-5 mb-5">
+                            <div class="col-auto">
+                                <a href="" class="btn btn-outline-dark">Continuar comprando</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasScrollingLabel"></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body row">
+            <div class="w-100 row justify-content-center align-items-center">
+                <form class="form-inline d-flex col-10" role="search">
+                    <div class="form-group w-100">
+                        <input class="form-control me-2" type="search" placeholder="Busqueda" aria-label="Busqueda">
+                    </div>
+                </form>
+            </div>
+            <ul class="navbar-nav gap-2 px-5">
+                <li class="nav-item d-flex justify-content-between align-items-center">
+                    <a class="nav-link" href="hombres.html">Hombres</a>
+                    <i class="fas fa-angle-right"></i>
+                </li>
+                <li class="nav-item d-flex justify-content-between align-items-center">
+                    <a class="nav-link" href="mujeres.html">Mujeres</a>
+                    <i class="fas fa-angle-right"></i>
+                </li>
+            </ul>
+            <ul class="navbar-nav gap-2 px-5 align-self-end mb-5">
+                <li class="nav-item d-flex justify-content-between align-items-center">
+                    <a class="nav-link" href="login.html">Iniciar Sesion</a>
+                    <i class="fas fa-user"></i>
+                </li>
+                <li class="nav-item d-flex justify-content-between align-items-center">
+                    <a class="nav-link" href="registro.html">Registrarse</a>
+                    <i class="fas fa-user-plus"></i>
+                </li>
+                <li class="nav-item d-flex justify-content-between align-items-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <p>Carrito</p>
+                    <i class="fas fa-cart-shopping"></i>
+                </li>
+            </ul>
+        </div>
+    </div>
+
     <div class="container py-5">
         <h1 class="text-center text-black mb-4 title-stylish">Productos Estelares Femeninos</h1>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 ">
@@ -20,9 +143,9 @@
                         <div class="mb-2 text-danger d-flex justify-content-end">
                             <span>❤️3</span>
                         </div>
-                        <img src="https://www.etafashion.com/medias/5000000533095-515x515-0.jpg?context=bWFzdGVyfGltYWdlc3wzNDU1NzJ8aW1hZ2UvanBlZ3xhRGcxTDJnMk5DODRPRFF3T1RrNU5qQXdNVFU0THpVd01EQXdNREExTXpNd09UVXROVEUxZURVeE5WOHdMbXB3Wnd8NWY4ODJkYjYxNTFjYWI2YjFjNDA0OWIxOTlkZjVhMjMyOGU3NTI2NzFhZDYxZjhlNjYzYzJhZGQyMjczMTY5MQ" class="card-img-top" alt="Pantalones deportivos">
-                        <h5 class="card-title text-dark mt-3">$30.99</h5>
-                        <p class="card-text text-muted">Pantalones deportivos</p>
+                        <img src="https://resources.claroshop.com/medios-plazavip/t1/172517927710D28jpg" class="card-img-top" alt="Pantalones deportivos">
+                        <h5 class="card-title text-dark mt-3">$19.99</h5>
+                        <p class="card-text text-muted">Vestido Casual</p>
                         <a href="#" class="btn btn-outline-warning rounded-pill">Detalles</a>
                     </div>
                 </div>
@@ -34,9 +157,9 @@
                         <div class="mb-2 text-danger d-flex justify-content-end">
                             <span>❤️7</span>
                         </div>
-                        <img src="https://glokalstore.com/cdn/shop/files/AzulDenim1.jpg?v=1688182450&width=533" class="card-img-top" alt="Camiseta verde">
-                        <h5 class="card-title text-dark mt-3">$11.31</h5>
-                        <p class="card-text text-muted">Camiseta de manga corta para adultos Comfort Colors</p>
+                        <img src="https://media.istockphoto.com/id/1282560707/es/foto/hermosa-morena-joven-mujer-con-perfecto-cuerpo-blanco-blusa-y-chaqueta-beige-pantalones-y.jpg?s=612x612&w=0&k=20&c=ZSxVYY4TZpgK6avVLKQ1iGqimObiHjhQNRKKP1MKx5Q=" class="card-img-top" alt="Camiseta verde">
+                        <h5 class="card-title text-dark mt-3">$31.99</h5>
+                        <p class="card-text text-muted">Blusa Elegante</p>
                         <a href="#" class="btn btn-outline-warning rounded-pill">Detalles</a>
                     </div>
                 </div>
@@ -48,9 +171,9 @@
                         <div class="mb-2 text-danger d-flex justify-content-end">
                             ❤️<span>6</span>
                         </div>
-                        <img src="https://i5.walmartimages.com/asr/7828db14-45e2-4945-abb0-e52874a80e98.cb3536e4fc06d75348ff27935a1bb5e9.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF" class="card-img-top" alt="Pantalones cargo">
-                        <h5 class="card-title text-dark mt-3">$19.99</h5>
-                        <p class="card-text text-muted">Pantalones deportivos tipo cargo</p>
+                        <img src="https://img.bestdealplus.com/ae04/kf/H7540562e3fc54b94b1746df7d5e96d975.jpg" class="card-img-top" alt="Pantalones cargo">
+                        <h5 class="card-title text-dark mt-3">$20.99</h5>
+                        <p class="card-text text-muted">Sandalias</p>
                         <a href="#" class="btn btn-outline-warning rounded-pill">Detalles</a>
                     </div>
                 </div>
@@ -63,9 +186,9 @@
                         <div class="mb-2 text-danger d-flex justify-content-end">
                             ❤️<span>5</span>
                         </div>
-                        <img src="https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1698742278-71IeaJujskL.jpg?crop=1xw:1xh;center,top&resize=980:*" class="card-img-top" alt="Reloj deportivo">
-                        <h5 class="card-title text-dark mt-3">$59.99</h5>
-                        <p class="card-text text-muted">Reloj deportivo resistente al agua</p>
+                        <img src="https://acdn.mitiendanube.com/stores/879/746/products/vakapi_fondo-blanco_guchi-310-71816b336707add90117200332978734-480-0.jpg" class="card-img-top" alt="Reloj deportivo">
+                        <h5 class="card-title text-dark mt-3">$39.99</h5>
+                        <p class="card-text text-muted">Bolso de Mano</p>
                         <a href="#" class="btn btn-outline-warning rounded-pill">Detalles</a>
                     </div>
                 </div>
@@ -78,9 +201,9 @@
                         <div class="mb-2 text-danger d-flex justify-content-end">
                             ❤️<span>4</span>
                         </div>
-                        <img src="https://preppybeach.cl/cdn/shop/files/85241_BLK_TM4.jpg?v=1706030467&width=2400" class="card-img-top" alt="Chaqueta negra">
-                        <h5 class="card-title text-dark mt-3">$89.99</h5>
-                        <p class="card-text text-muted">Chaqueta negra impermeable</p>
+                        <img src="https://st4.depositphotos.com/16122460/23476/i/450/depositphotos_234762490-stock-photo-young-woman-perfume-bottle-white.jpg" class="card-img-top" alt="Chaqueta negra">
+                        <h5 class="card-title text-dark mt-3">$59.99</h5>
+                        <p class="card-text text-muted">Perfume Femenino</p>
                         <a href="#" class="btn btn-outline-warning rounded-pill">Detalles</a>
                     </div>
                 </div>
@@ -93,9 +216,9 @@
                         <div class="mb-2 text-danger d-flex justify-content-end">
                             ❤️<span>5</span>
                         </div>
-                        <img src="https://siman.vtexassets.com/arquivos/ids/5958656-800-800?v=638569078612170000&width=800&height=800&aspect=true" class="card-img-top" alt="Zapatos casuales">
-                        <h5 class="card-title text-dark mt-3">$45.50</h5>
-                        <p class="card-text text-muted">Zapatos casuales para hombre</p>
+                        <img src="https://www.tottoecuador.com/images/large/60722403331077/Gafas_de_Sol_Totto_Polarizadas_Rodador_U_614_1_ZOOM.jpg" class="card-img-top" alt="Zapatos casuales">
+                        <h5 class="card-title text-dark mt-3">$19.99</h5>
+                        <p class="card-text text-muted">Gafas de Sol de Moda</p>
                         <a href="#" class="btn btn-outline-warning rounded-pill">Detalles</a>
                     </div>
                 </div>
@@ -108,9 +231,9 @@
                         <div class="mb-2 text-danger d-flex justify-content-end">
                             ❤️<span>6</span>
                         </div>
-                        <img src="https://i.etsystatic.com/18815814/r/il/5805d9/3171521869/il_fullxfull.3171521869_bws4.jpg" class="card-img-top" alt="Mochila">
-                        <h5 class="card-title text-dark mt-3">$34.99</h5>
-                        <p class="card-text text-muted">Mochila ergonómica resistente</p>
+                        <img src="https://keeshoes.es/a/ale/auction_image/image1_193025.s790/zapatillas-con-plataforma-birikti-blancas-blanco-790x790.jpeg?_=1711807149.91409541" class="card-img-top" alt="Mochila">
+                        <h5 class="card-title text-dark mt-3">$25.99</h5>
+                        <p class="card-text text-muted">Zapatillas deportivas</p>
                         <a href="#" class="btn btn-outline-warning rounded-pill">Detalles</a>
                     </div>
                 </div>
@@ -123,9 +246,9 @@
                         <div class="mb-2 text-danger d-flex justify-content-end">
                             ❤️<span>3</span>
                         </div>
-                        <img src="https://willbloom.cl/cdn/shop/files/HONR21BKTP_LS2_800x.jpg?v=1705084528" class="card-img-top" alt="Gafas de sol">
-                        <h5 class="card-title text-dark mt-3">$22.99</h5>
-                        <p class="card-text text-muted">Gafas de sol polarizadas</p>
+                        <img src="https://www.argentariaperu.com/wp-content/uploads/2023/02/21772-33612-x.jpg.webp" class="card-img-top" alt="Gafas de sol">
+                        <h5 class="card-title text-dark mt-3">$9.99</h5>
+                        <p class="card-text text-muted">Pulsera de Plata</p>
                         <a href="#" class="btn btn-outline-warning rounded-pill">Detalles</a>
                     </div>
                 </div>
@@ -138,16 +261,80 @@
                         <div class="mb-2 text-danger d-flex justify-content-end">
                             ❤️<span>2</span>
                         </div>
-                        <img src="https://belcorpecuador.vtexassets.com/arquivos/ids/309052-800-800?v=638545968337030000&width=800&height=800&aspect=true" class="card-img-top" alt="Perfume masculino">
-                        <h5 class="card-title text-dark mt-3">$49.99</h5>
-                        <p class="card-text text-muted">Perfume masculino fragancia fresca</p>
+                        <img src="https://i.etsystatic.com/8196303/r/il/75fc23/4654778751/il_fullxfull.4654778751_m1or.jpg" class="card-img-top" alt="Perfume masculino">
+                        <h5 class="card-title text-dark mt-3">$19.99</h5>
+                        <p class="card-text text-muted">Collar de plata</p>
                         <a href="#" class="btn btn-outline-warning rounded-pill">Detalles</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <footer class="bg-dark mt-5">
+        <div class="container">
+            <div class="row justify-content-around">
+                <div class="col-md-4 pt-5">
+                    <h4 class="text-light border-bottom pb-3 border-light">Tienda</h4>
+                    <ul class="list-unstyled text-light footer-link-list">
+                        <li>
+                            <i class="fas fa-map-marker-alt fa-fw"></i>
+                            Universidad de las Fuerzas Armadas ESPE
+                        </li>
+                        <li>
+                            <i class="fa fa-phone fa-fw"></i>
+                            <a class="text-decoration-none" href="">0980098210</a>
+                        </li>
+                        <li>
+                            <i class="fa fa-envelope fa-fw"></i>
+                            <a class="text-decoration-none" href="">jfgalarza5@espe.edu.ec</a>
+                        </li>
+                    </ul>
+                </div>
 
+                <div class="col-md-4 pt-5">
+                    <h4 class="text-light border-bottom pb-3 border-light">Explora</h4>
+                    <ul class="list-unstyled text-light footer-link-list">
+                        <li><a class="text-decoration-none" href="index.html">Inicio</a></li>
+                        <li><a class="text-decoration-none" href="Conocenos.html">Conocenos</a></li>
+                        <li><a class="text-decoration-none" href="hombres.html">Hombres</a></li>
+                        <li><a class="text-decoration-none" href="mujeres.html">Mujeres</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4 pt-5">
+                    <h4 class="text-light border-bottom pb-3 border-light">Redes Sociales</h4>
+                    <ul class="list-inline text-left footer-icons">
+                        <li class="list-inline-item border border-light rounded-circle text-center">
+                            <a class="text-light text-decoration-none" target="_blank" href="http://facebook.com/"><i class="fab fa-facebook-f fa-lg fa-fw"></i></a>
+                        </li>
+                        <li class="list-inline-item border border-light rounded-circle text-center">
+                            <a class="text-light text-decoration-none" target="_blank" href="https://www.instagram.com/"><i class="fab fa-instagram fa-lg fa-fw"></i></a>
+                        </li>
+                        <li class="list-inline-item border border-light rounded-circle text-center">
+                            <a class="text-light text-decoration-none" target="_blank" href="https://twitter.com/"><i class="fab fa-twitter fa-lg fa-fw"></i></a>
+                        </li>
+                        <li class="list-inline-item border border-light rounded-circle text-center">
+                            <a class="text-light text-decoration-none" target="_blank" href="https://www.linkedin.com/"><i class="fab fa-linkedin fa-lg fa-fw"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="bg-light">
+        </div>
+
+        <div class="w-100 py-3">
+            <div class="container">
+                <div class="row pt-2">
+                    <div class="col-12">
+                        <p class="text-left text-light">
+                            Copyright &copy; 2024 
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://kit.fontawesome.com/5f232b4c5b.js" crossorigin="anonymous"></script>
     <script src="js/bootstrap.js"></script>
 </body>
 </html>

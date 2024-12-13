@@ -352,8 +352,17 @@
 
     <script src="js/bootstrap.min.js"></script>
     <script>
-        console.log("Hola soy el servidor MV3");
-    </script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('server_info.php')
+                .then(response => response.json())
+                .then(data => {
+                    alert('Servidor: ' + data.hostname + '\nIP: ' + data.ip);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        });
+    </script>
     
     <script src="https://kit.fontawesome.com/5f232b4c5b.js" crossorigin="anonymous"></script>
 </body>

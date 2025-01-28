@@ -55,22 +55,13 @@
 
 
 /* Estilos Jennifer */
-.card-img-top {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-}
+
+
 .title-stylish {
     color: #000; 
     font-family: 'Arial', sans-serif; 
     font-weight: bold;  
     letter-spacing: 2px;  
-}
-
-.card:hover {
-    transform: scale(1.05); 
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); 
-    transition: transform 0.3s ease, box-shadow 0.3s ease; 
 }
 
 .card-body:hover {
@@ -83,4 +74,67 @@
     color: white !important; 
     transition: background-color 0.3s ease, color 0.3s ease;
 }
+
+.card-img-top1:hover{
+    content: url("https://shop-cons.com/cdn/shop/files/IMG-2632_300x.jpg?v=1734447515");
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+}
+
+.card-img-top2:hover{
+    content: url("https://shop-cons.com/cdn/shop/files/0R0A1463_300x.jpg?v=1734132860");
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+}
+.card-img-top3:hover{
+    content: url("https://shop-cons.com/cdn/shop/files/0R0A1375_300x.jpg?v=1734130852");
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+}
+.card-img-top4:hover{
+    content: url("https://shop-cons.com/cdn/shop/files/0R0A0999_300x.jpg?v=1734130888");
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+}
+.card-img-top5:hover{
+    content: url("https://shop-cons.com/cdn/shop/files/IMG-2624_300x.jpg?v=1734447152");
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+}
+.card-img-top6:hover{
+    content: url("https://shop-cons.com/cdn/shop/files/BO2A2386_400x.jpg?v=1734184512");
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+}
+.card-img-top6:hover{
+    content: url("https://shop-cons.com/cdn/shop/files/BO2A2386_400x.jpg?v=1734184512");
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+}
+.card-img-top7:hover{
+    content: url("https://shop-cons.com/cdn/shop/files/0R0A0583_400x.jpg?v=1726255077");
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+}
+.card-img-top8:hover{
+    content: url("https://shop-cons.com/cdn/shop/files/0R0A1457_400x.jpg?v=1726258407");
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+}
+.card-img-top9:hover{
+    content: url("https://shop-cons.com/cdn/shop/files/0R0A7802_300x.jpg?v=1726253414");
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+}
+
 

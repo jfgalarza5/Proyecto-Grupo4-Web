@@ -11,6 +11,14 @@
             background-color: #2d5784; 
             color: white;
         }
+        .errorinput {
+            border: 1px solid #ff8894;
+            background-color: #fff8f8;
+        }
+        .errormessage {
+            color: #ff8894;
+            font-size: 0.9em;
+        }
     </style>
 </head>
 <body>
@@ -53,92 +61,17 @@
         </nav>
     </header>
 
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content px-5">
-                <div class="modal-body">
-                    <div class="container">
-                        <div class="row justify-content-between mt-4">
-                            <div class="col-auto">
-                                <p>Carrito</p>
-                            </div>
-                            <div class="col-auto">
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                        </div>
-                        <div class="row justify-content-center mt-5">
-                            <div class="col-auto">
-                                <span style="color: #ddd;">
-                                    <i class="fas fa-cart-shopping fa-2x"></i>
-                                </span>
-                            </div>
-                            <div class="col-12 text-center mt-4">
-                                <p class="text-muted">No tienes productos en tu carrito</p>
-                            </div>
-                        </div>
-                        <div class="row justify-content-center mt-5 mb-5">
-                            <div class="col-auto">
-                                <a href="" class="btn btn-outline-dark">Continuar comprando</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasScrollingLabel"></h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body row">
-            <div class="w-100 row justify-content-center align-items-center">
-                <form class="form-inline d-flex col-10" role="search">
-                    <div class="form-group w-100">
-                        <input class="form-control me-2" type="search" placeholder="Busqueda" aria-label="Busqueda">
-                    </div>
-                </form>
-            </div>
-            <ul class="navbar-nav gap-2 px-5">
-                <li class="nav-item d-flex justify-content-between align-items-center">
-                    <a class="nav-link" href="hombres.html">Hombres</a>
-                    <i class="fas fa-angle-right"></i>
-                </li>
-                <li class="nav-item d-flex justify-content-between align-items-center">
-                    <a class="nav-link" href="mujeres.html">Mujeres</a>
-                    <i class="fas fa-angle-right"></i>
-                </li>
-            </ul>
-            <ul class="navbar-nav gap-2 px-5 align-self-end mb-5">
-                <li class="nav-item d-flex justify-content-between align-items-center">
-                    <a class="nav-link" href="login.html">Iniciar Sesion</a>
-                    <i class="fas fa-user"></i>
-                </li>
-                <li class="nav-item d-flex justify-content-between align-items-center">
-                    <a class="nav-link" href="registro.html">Registrarse</a>
-                    <i class="fas fa-user-plus"></i>
-                </li>
-                <li class="nav-item d-flex justify-content-between align-items-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    <p>Carrito</p>
-                    <i class="fas fa-cart-shopping"></i>
-                </li>
-            </ul>
-        </div>
-    </div>
-
     <section class="d-flex justify-content-center align-items-center vh-100" style="background-image: url('img/fondo.jpeg'); background-size: cover; background-position: center;">
         <div class="container">
             <div class="row justify-content-center me-4 ms-4">
                 <div class="col-10 col-md-6 col-lg-4 shadow-lg p-5 bg-white">
                     <h3 class="mb-4 font-weight-bold">Iniciar Sesión</h3>
-                    <form>
+                    <form id="loginForm">
                         <div class="mb-3">
-                            <input type="email" class="form-control" placeholder="Correo electrónico" required>
+                            <input type="email" class="form-control" placeholder="Correo electrónico" id="email">
                         </div>
                         <div class="mb-4">
-                            <input type="password" class="form-control" placeholder="Contraseña" required>
+                            <input type="password" class="form-control" placeholder="Contraseña" id="password">
                         </div>
                         <button type="submit" class="btn btn-dark w-100">Enviar</button>
                     </form>
@@ -219,12 +152,56 @@
                 </div>
             </div>
         </div>
-
     </footer>
 
     <script src="js/bootstrap.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/5f232b4c5b.js" crossorigin="anonymous"></script>
+    <script src="js/JQueryV3.7.1.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            function mostrarError(elemento, mensaje) {
+                elemento
+                    .addClass('errorinput')
+                    .after(`<div class="text-danger errormessage">${mensaje}</div>`);
+            }
+
+            function limpiarErrores() {
+                $('.errormessage').remove();
+                $('.errorinput').removeClass('errorinput');
+            }
+
+            $("#loginForm").submit(function(event) {
+                limpiarErrores();
+                var email = $("#email").val();
+                var password = $("#password").val();
+                var valid = true;
+
+                // Validación del correo electrónico
+                if (email == "") {
+                    mostrarError($("#email"), "El correo electrónico es obligatorio.");
+                    valid = false;
+                } else if (!email.includes('@')) {
+                    mostrarError($("#email"), "El correo electrónico debe incluir un '@'.");
+                    valid = false;
+                }
+
+                // Validación de la contraseña
+                if (password == "") {
+                    mostrarError($("#password"), "La contraseña es obligatoria.");
+                    valid = false;
+                } else if (password.length < 5 || password.length > 12) {
+                    mostrarError($("#password"), "La contraseña debe tener entre 5 y 12 caracteres.");
+                    valid = false;
+                }
+
+                // Si alguna validación falla, no enviamos el formulario
+                if (!valid) {
+                    event.preventDefault();
+                }
+            });
+        });
+    </script>
 </body>
 </html>
-

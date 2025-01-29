@@ -137,4 +137,18 @@
     object-fit: cover;
 }
 
+.heart-container {
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.heart-container .fa-heart {
+    color: gray; /* Color inicial del corazón */
+    font-size: 24px;
+}
+
+.heart-container .fa-heart.liked {
+    color: rgb(247, 124, 144); /* Color cuando se hace clic */
+}
+
 

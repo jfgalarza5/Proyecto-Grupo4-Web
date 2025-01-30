@@ -89,7 +89,7 @@
     bottom: -100px; 
     left: 50%;
     transform: translateX(-50%);
-    background-color: #3d4855;
+    background-color: #1c1e20;
     color: white;
     padding: 15px 20px;
     border-radius: 8px;
@@ -115,6 +115,28 @@
 .notification a:hover {
     text-decoration: underline;
 }
+
+
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.whatsapp-float img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.whatsapp-float img:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
+}
+
 
 .card-img-top1:hover {
     content: url("https://shop-cons.com/cdn/shop/files/IMG-2632_300x.jpg?v=1734447515");

@@ -55,7 +55,38 @@
 }
 
 
-/* Estilos Jennifer */
+/* -------------------------------Estilos Jennifer */
+
+.top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 0;
+    z-index: 1001; 
+    transition: top 0.5s ease-in-out; 
+}
+
+
+.top-bar marquee {
+    color: white;
+    font-weight: bold;
+}
+
+
+.top-bar strong {
+    color: #f05dda; 
+}
+
+header {
+    margin-top: 40px;
+}
+
 
 .title-stylish {
     color: #000; 

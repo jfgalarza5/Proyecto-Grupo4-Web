@@ -5,23 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Productos Masculinos</title>
 
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
     <script src="https://kit.fontawesome.com/5f232b4c5b.js" crossorigin="anonymous"></script>
-
+    <script src="js/JQueryV3.7.1.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
 
 </head>
 <body class="bg-light">
- 
-<button onclick="scrollToTop()" id="btnScrollTop" class="floating-button scroll-top">
-    <i class="fa fa-chevron-up"></i> <!-- Ícono de triángulo -->
-</button>
+    
+    <button onclick="scrollToTop()" id="btnScrollTop" class="floating-button scroll-top">
+        <i class="fa fa-chevron-up"></i> <!-- Ícono de triángulo -->
+    </button>
 
 
-<a href="https://wa.me/593XXXXXXXXX" class="floating-button whatsapp-float" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-</a>
+    <a href="https://wa.me/593985359444" class="floating-button whatsapp-float" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
 
 
     <div id="notification" class="notification">
@@ -30,6 +30,13 @@
     </div>
 
     
+    <div id="topBar" class="top-bar">
+        <marquee behavior="scroll" direction="left">
+            TODAS LAS <strong>POLERAS</strong> POR <strong>$20</strong> - ENVÍO GRATIS EN PEDIDOS MAYORES A $50 - APROVECHA YA 🔥
+        </marquee>
+    </div>
+
+
     <header class="ps-5 pe-5 bg-white">
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="d-flex align-items-center col-2"> 
@@ -360,13 +367,9 @@
     <script src="https://kit.fontawesome.com/5f232b4c5b.js" crossorigin="anonymous"></script>
     <script src="js/bootstrap.min.js"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            loadFavorites();
-        });
-
         function toggleHeart(heart, imgSrc) {
-            let isLoggedIn = false; 
-
+            let isLoggedIn = false;
+             
             if (!isLoggedIn) {
                 showNotification();
                 return;

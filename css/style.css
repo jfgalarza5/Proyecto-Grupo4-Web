@@ -68,12 +68,6 @@
     transition: background-color 0.3s ease;
 }
 
-.btn:hover {
-    background-color: #ffc107 !important; 
-    color: white !important; 
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
 /* Estilos del corazón */
 .heart-container {
     margin-top: 10px;

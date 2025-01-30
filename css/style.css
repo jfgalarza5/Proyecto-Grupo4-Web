@@ -306,7 +306,7 @@ header {
 
 .precio_producto {
     font-size: 30px;
-    color: #e74c3c;
+    color: #337;
     font-weight: bold;
     margin: 10px 0;
 }
@@ -315,6 +315,11 @@ header {
     display: flex;
     align-items: center;
     margin: 25px 0;
+}
+
+#num_producto{
+    width: 15%;
+    border: 0;
 }
 
 #cat {
@@ -431,16 +436,11 @@ header {
 .form_comentario button {
     width: 150px;
     padding: 10px;
-    background-color: #e74c3c;
     color: white;
     border: none;
     cursor: pointer;
     transition: background-color 0.3s;
     align-self: flex-end;
-}
-
-.form_comentario button:hover {
-    background-color: #c0392b;
 }
 
 #lista_comentario{
@@ -475,4 +475,14 @@ header {
 .item_comentario > div p {
     font-size: 14px;
     color: #555;
+}
+
+.carrito-producto{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.carrito-producto img{
+    width: 100%;
 }

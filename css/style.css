@@ -251,3 +251,20 @@ header {
 .card-img-top9:hover {
     content: url("https://shop-cons.com/cdn/shop/files/0R0A7802_300x.jpg?v=1726253414");
 }
+
+/* Estilos del corazón */
+.heart-container {
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.heart-container .fa-heart {
+    color: gray; 
+    font-size: 24px;
+    transition: color 0.3s ease;
+}
+
+.heart-container .fa-heart.liked {
+    color: rgb(247, 124, 144); 
+}
+

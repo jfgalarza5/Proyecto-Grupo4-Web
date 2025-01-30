@@ -8,14 +8,22 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/5f232b4c5b.js" crossorigin="anonymous"></script>
 
 
 </head>
 <body class="bg-light">
-   
-    <a href="https://wa.me/0985359444" class="whatsapp-float" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-    </a>
+     
+<!-- Botón flotante "Volver arriba" -->
+<button onclick="scrollToTop()" id="btnScrollTop" class="floating-button scroll-top">
+    <i class="fa fa-chevron-up"></i> <!-- Ícono de triángulo -->
+</button>
+
+<!-- Botón flotante de WhatsApp -->
+<a href="https://wa.me/593XXXXXXXXX" class="floating-button whatsapp-float" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+</a>
+
 
     <div id="notification" class="notification">
         Necesitas iniciar sesión antes de agregar un producto a la lista 
@@ -156,7 +164,7 @@
                         <img  src="https://shop-cons.com/cdn/shop/files/IMG-2631_400x.jpg?v=1734447515"  style=" width: 90%;  height: 400px;" class="card-img-top1" alt="Pantalones deportivos">
                         <h5 class="card-title text-dark mt-3">$15.99</h5>
                         <p class="card-text text-muted">BUCKET VERDE ♂</p>
-                        <a href="#" class="btn btn-outline-warning rounded-pill">Detalles</a>
+                        <a href="#" class="btn btn-custom">Detalles</a>
                         <!-- Corazón alineado a la derecha -->
             <div class="heart-container d-flex justify-content-end">
                 <i class="fa fa-heart" onclick="toggleHeart(this)"></i>
@@ -173,7 +181,7 @@
                         <img src="https://shop-cons.com/cdn/shop/files/0R0A0996_400x.jpg?v=1734130888"  style=" width: 90%;  height: 400px;" class="card-img-top4" alt="Reloj deportivo">
                         <h5 class="card-title text-dark mt-3">$20.99</h5>
                         <p class="card-text text-muted">POLERA NEGRA ♂</p>
-                        <a href="#" class="btn btn-outline-warning rounded-pill">Detalles</a>
+                        <a href="#" class="btn btn-custom">Detalles</a>
                         <!-- Corazón alineado a la derecha -->
             <div class="heart-container d-flex justify-content-end">
                 <i class="fa fa-heart" onclick="toggleHeart(this)"></i>
@@ -188,7 +196,7 @@
                         <img src="https://shop-cons.com/cdn/shop/files/IMG-2622_400x.jpg?v=1734447152"  style=" width: 90%;  height: 400px;" class="card-img-top5" alt="Chaqueta negra">
                         <h5 class="card-title text-dark mt-3">$14.99</h5>
                         <p class="card-text text-muted">BUCKET AZUL ♂</p>
-                        <a href="#" class="btn btn-outline-warning rounded-pill">Detalles</a>
+                        <a href="#" class="btn btn-custom">Detalles</a>
                         <div class="heart-container d-flex justify-content-end">
                             <i class="fa fa-heart" onclick="toggleHeart(this)"></i>
                         </div>
@@ -202,7 +210,7 @@
                         <img src="https://shop-cons.com/cdn/shop/files/0R0A1453_400x.jpg?v=1734132855"  style=" width: 90%;  height: 400px;"  class="card-img-top2" alt="Camiseta verde">
                         <h5 class="card-title text-dark mt-3">$42.99</h5>
                         <p class="card-text text-muted">HOODIE NEGRO ♂</p>
-                        <a href="#" class="btn btn-outline-warning rounded-pill">Detalles</a>
+                        <a href="#" class="btn btn-custom">Detalles</a>
                         <div class="heart-container d-flex justify-content-end">
                             <i class="fa fa-heart" onclick="toggleHeart(this)"></i>
                         </div>
@@ -216,7 +224,7 @@
                         <img src="https://shop-cons.com/cdn/shop/files/BO2A2431_300x.jpg?v=1734184525"  style=" width: 90%;  height: 400px;" class="card-img-top6" alt="Zapatos casuales">
                         <h5 class="card-title text-dark mt-3">$40.99</h5>
                         <p class="card-text text-muted">HOODIE YELLOW ♂</p>
-                        <a href="#" class="btn btn-outline-warning rounded-pill">Detalles</a>
+                        <a href="#" class="btn btn-custom">Detalles</a>
                         <div class="heart-container d-flex justify-content-end">
                             <i class="fa fa-heart" onclick="toggleHeart(this)"></i>
                         </div>
@@ -230,7 +238,7 @@
                         <img src="https://shop-cons.com/cdn/shop/files/0R0A1388_400x.jpg?v=1734130852"   style=" width: 90%;  height: 400px;" class="card-img-top3" alt="Pantalones cargo">
                         <h5 class="card-title text-dark mt-3">$43.99</h5>
                         <p class="card-text text-muted">HOODIE AZUL ♂</p>
-                        <a href="#" class="btn btn-outline-warning rounded-pill">Detalles</a>
+                        <a href="#" class="btn btn-custom">Detalles</a>
                         <div class="heart-container d-flex justify-content-end">
                             <i class="fa fa-heart" onclick="toggleHeart(this)"></i>
                         </div>
@@ -244,7 +252,7 @@
                         <img src="https://shop-cons.com/cdn/shop/files/0R0A0616_300x.jpg?v=1726255077"  style=" width: 90%;  height: 400px;" class="card-img-top7" alt="Mochila">
                         <h5 class="card-title text-dark mt-3">$44.99</h5>
                         <p class="card-text text-muted">HOODIE SPICYLIFE ♂</p>
-                        <a href="#" class="btn btn-outline-warning rounded-pill">Detalles</a>
+                        <a href="#" class="btn btn-custom">Detalles</a>
                         <div class="heart-container d-flex justify-content-end">
                             <i class="fa fa-heart" onclick="toggleHeart(this)"></i>
                         </div>
@@ -258,7 +266,7 @@
                         <img src="https://shop-cons.com/cdn/shop/files/0R0A1445_300x.jpg?v=1726258407"  style=" width: 90%;  height: 400px;" class="card-img-top8" alt="Gafas de sol">
                         <h5 class="card-title text-dark mt-3">$22.99</h5>
                         <p class="card-text text-muted">HOODIE GRIS ♂</p>
-                        <a href="#" class="btn btn-outline-warning rounded-pill">Detalles</a>
+                        <a href="#" class="btn btn-custom">Detalles</a>
                         <div class="heart-container d-flex justify-content-end">
                             <i class="fa fa-heart" onclick="toggleHeart(this)"></i>
                         </div>
@@ -272,7 +280,7 @@
                         <img src="https://shop-cons.com/cdn/shop/files/0R0A7842_400x.jpg?v=1726253414"  style=" width: 90%;  height: 400px;" class="card-img-top9" alt="Perfume masculino">
                         <h5 class="card-title text-dark mt-3">$43.99</h5>
                         <p class="card-text text-muted">HOODIE OLIVO ♂</p>
-                        <a href="#" class="btn btn-outline-warning rounded-pill">Detalles</a>
+                        <a href="#" class="btn btn-custom">Detalles</a>
                         <div class="heart-container d-flex justify-content-end">
                             <i class="fa fa-heart" onclick="toggleHeart(this)"></i>
                         </div>
@@ -358,7 +366,7 @@
         });
 
         function toggleHeart(heart, imgSrc) {
-            let isLoggedIn = false; // Simulación de usuario autenticado
+            let isLoggedIn = false; 
 
             if (!isLoggedIn) {
                 showNotification();
@@ -398,6 +406,21 @@
             setTimeout(() => {
                 notification.classList.remove("show");
             }, 4000); 
+        }
+
+        
+        window.onscroll = function () {
+            let btn = document.getElementById("btnScrollTop");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                btn.style.display = "block";
+            } else {
+                btn.style.display = "none";
+            }
+        };
+
+        // Función para volver arriba 
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: "smooth" });
         }
         
     </script>

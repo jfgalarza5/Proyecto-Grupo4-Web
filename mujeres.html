@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="https://kit.fontawesome.com/5f232b4c5b.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="js/JQueryV3.7.1.js"></script>
+    <script src="js/jquery.easing.1.3.min.js"></script>
 
 
 </head>
@@ -29,7 +29,7 @@
         <a href="login.html">INICIAR SESIÓN</a>
     </div>
 
-    <header class="ps-5 pe-5 bg-white">
+    <header class="ps-5 pe-5">
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="d-flex align-items-center col-2"> 
                 <a class="logo navbar-brand me-5" href="index.html">Mathion</a>
@@ -47,19 +47,26 @@
                             <a class="nav-link" href="mujeres.html">Mujeres ♀</a>
                         </li>
                     </ul>
+                    <div class="w-100 row justify-content-center align-items-center">
+                        <form class="form-inline d-flex col-8" role="search">
+                            <div class="form-group w-100">
+                                <input class="form-control me-2 border-top-0 border-end-0 border-start-0" type="search" placeholder="Busqueda" aria-label="Busqueda">
+                            </div>
+                        </form>
+                    </div>
                     <div class="iconos col-2 d-flex justify-content-end">
                         <ul class="navbar-nav gap-4">
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <li class="nav-item dropdown  d-none d-lg-flex">
+                                <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i id="icon_user" class="fa fa-user text-dark fa-xl"></i>
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="login.html">Iniciar Sesión</a></li>
+                                    <li><a class="dropdown-item" href="login.html">Iniciar Sesion</a></li>
                                     <li><a class="dropdown-item" href="registro.html">Registrarse</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link position-relative text-decoration-none" href="" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                     <i id="icon_cart" class="fa fa-cart-arrow-down text-dark fa-xl"></i>
                                 </a>
                             </li>
@@ -92,7 +99,7 @@
                                 <p>Carrito</p>
                             </div>
                             <div class="col-auto">
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <button id="icon_close"  type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                         </div>
                         <div class="row justify-content-center mt-5">
@@ -166,7 +173,7 @@
                         <img  src="https://shop-cons.com/cdn/shop/files/0R0A2528_400x.jpg?v=1734185630"  style=" width: 90%;  height: 400px;" class="card-img-top10" alt="BUCKET NEGRO">
                         <h5 class="card-title text-dark mt-3">$40.99</h5>
                         <p class="card-text text-muted">BUZO NEGRO ♀</p>
-                        <a href="producto.html" class="btn btn-custom">Detalles</a>
+                        <a href="#" class="btn btn-custom">Detalles</a>
                         <!-- Corazón alineado a la derecha -->
             <div class="heart-container d-flex justify-content-end">
                 <i class="fa fa-heart" onclick="toggleHeart(this)"></i>
@@ -365,32 +372,44 @@
     <script>
         
         $(document).ready(function(){
-    
+            
+            $("#icon_user").hover(function(){
+                $(this).stop().animate({ top: "-3px" }, 200, "easeOutBounce");
+            }, function(){
+                $(this).stop().animate({ top: "0px" }, 200);
+            });
+
+            $("#icon_cart").click(function(){
+                $(this).parent().css('overflow', 'hidden');
+                $(this).stop().animate(
+                    {
+                        left: "50px"
+                    },
+                    1000,
+                    "easeOutBounce",
+                    function(){
+                        $(this).css("left", "-50px");
+                    }
+                )
+            });
+
+            $("#icon_close").click(function(){
+                $("#icon_cart").stop().animate(
+                    {
+                        left: "0"
+                    },
+                    1000,
+                    "easeOutBounce"
+                )
+            });
+
             //  Efecto hover en tarjetas
             $(".card").hover(function(){
                 $(this).css("transform", "scale(1.05)");
             }, function(){
                 $(this).css("transform", "scale(1)");
             });
-    
-            // Efecto de rebote en el icono del usuario (Corregido)
-            $("#icon_user").hover(function(){
-                $(this).stop().animate({ top: "-5px" }, 500, "easeOutBounce");
-            }, function(){
-                $(this).stop().animate({ top: "0px" }, 500, "easeOutBounce");
-            });
-    
-            // Efecto de rebote en el icono del carrito (Corregido)
-            $("#icon_cart").click(function(){
-                $(this).stop().animate(
-                    { left: "+=20px" },
-                    500,
-                    "easeOutBounce",
-                    function(){
-                        $(this).stop().animate({ left: "-=20px" }, 500, "easeOutBounce");
-                    }
-                );
-            });
+
             //efecto de movimiento en el corazon
             $(".fa-heart").click(function(){
                 let isLoggedIn = false;

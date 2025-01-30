@@ -13,6 +13,7 @@
 
 .card{
     border: 0;
+    transition: transform 0.3s ease-in-out;
 }
 
 .tarjeta {

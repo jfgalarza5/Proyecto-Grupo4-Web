@@ -15,27 +15,23 @@
 <body class="bg-light">
     
     <button onclick="scrollToTop()" id="btnScrollTop" class="floating-button scroll-top">
-        <i class="fa fa-chevron-up"></i> <!-- Ícono de triángulo -->
+        <i class="fa fa-chevron-up"></i>
     </button>
-
 
     <a href="https://wa.me/593985359444" class="floating-button whatsapp-float" target="_blank">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
     </a>
-
 
     <div id="notification" class="notification">
         Necesitas iniciar sesión antes de agregar un producto a la lista 
         <a href="login.html">INICIAR SESIÓN</a>
     </div>
 
-    
     <div id="topBar" class="top-bar">
         <marquee behavior="scroll" direction="left">
             TODAS LAS <strong>POLERAS</strong> POR <strong>$20</strong> - ENVÍO GRATIS EN PEDIDOS MAYORES A $50 - APROVECHA YA 🔥
         </marquee>
     </div>
-
 
     <header class="ps-5 pe-5 bg-white">
         <nav class="navbar navbar-expand-lg navbar-light">
@@ -55,18 +51,11 @@
                             <a class="nav-link" href="mujeres.html">Mujeres ♀</a>
                         </li>
                     </ul>
-                    <div class="w-100 row justify-content-center align-items-center">
-                        <form class="form-inline d-flex col-8" role="search">
-                            <div class="form-group w-100">
-                                <input class="form-control me-2 border-top-0 border-end-0 border-start-0" type="search" placeholder="Busqueda" aria-label="Busqueda">
-                            </div>
-                        </form>
-                    </div>
                     <div class="iconos col-2 d-flex justify-content-end">
                         <ul class="navbar-nav gap-4">
-                            <li class="nav-item dropdown  d-none d-lg-flex">
-                                <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="fa fa-user text-dark fa-xl"></i>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i id="icon_user" class="fa fa-user text-dark fa-xl"></i>
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li><a class="dropdown-item" href="login.html">Iniciar Sesion</a></li>
@@ -74,8 +63,8 @@
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link position-relative text-decoration-none" href="" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    <i class="fa fa-cart-arrow-down text-dark fa-xl"></i>
+                                <a class="nav-link" href="#">
+                                    <i id="icon_cart" class="fa fa-cart-arrow-down text-dark fa-xl"></i>
                                 </a>
                             </li>
                         </ul>                 
@@ -300,11 +289,11 @@
 
         </div>
     </div>
-    <footer class="bg-dark mt-5">
+    <footer class="bg-dark">
         <div class="container">
             <div class="row justify-content-around">
                 <div class="col-md-4 pt-5">
-                    <h4 class="text-light border-bottom pb-3 border-light">Tienda</h4>
+                    <h4 class="text-light border-bottom pb-3 border-light">Mathion Shop</h4>
                     <ul class="list-unstyled text-light footer-link-list">
                         <li>
                             <i class="fas fa-map-marker-alt fa-fw"></i>
@@ -312,11 +301,11 @@
                         </li>
                         <li>
                             <i class="fa fa-phone fa-fw"></i>
-                            <a class="text-decoration-none" href="">0980098210</a>
+                            <a class="text-decoration-none text-white" href="">0980098210</a>
                         </li>
                         <li>
                             <i class="fa fa-envelope fa-fw"></i>
-                            <a class="text-decoration-none" href="">jfgalarza5@espe.edu.ec</a>
+                            <a class="text-decoration-none text-white" href="">jfgalarza5@espe.edu.ec</a>
                         </li>
                     </ul>
                 </div>
@@ -324,49 +313,60 @@
                 <div class="col-md-4 pt-5">
                     <h4 class="text-light border-bottom pb-3 border-light">Explora</h4>
                     <ul class="list-unstyled text-light footer-link-list">
-                        <li><a class="text-decoration-none" href="index.html">Inicio</a></li>
-                        <li><a class="text-decoration-none" href="Conocenos.html">Conocenos</a></li>
-                        <li><a class="text-decoration-none" href="hombres.html">Hombres</a></li>
-                        <li><a class="text-decoration-none" href="mujeres.html">Mujeres</a></li>
+                        <li><a class="text-decoration-none text-white" href="index.html">Inicio</a></li>
+                        <li><a class="text-decoration-none text-white" href="Conocenos.html">Conocenos</a></li>
+                        <li><a class="text-decoration-none text-white" href="hombres.html">Hombres</a></li>
+                        <li><a class="text-decoration-none text-white" href="mujeres.html">Mujeres</a></li>
                     </ul>
                 </div>
 
                 <div class="col-md-4 pt-5">
                     <h4 class="text-light border-bottom pb-3 border-light">Redes Sociales</h4>
                     <ul class="list-inline text-left footer-icons">
-                        <li class="list-inline-item border border-light rounded-circle text-center">
+                        <li class="list-inline-item rounded-circle text-center">
                             <a class="text-light text-decoration-none" target="_blank" href="http://facebook.com/"><i class="fab fa-facebook-f fa-lg fa-fw"></i></a>
                         </li>
-                        <li class="list-inline-item border border-light rounded-circle text-center">
+                        <li class="list-inline-item rounded-circle text-center">
                             <a class="text-light text-decoration-none" target="_blank" href="https://www.instagram.com/"><i class="fab fa-instagram fa-lg fa-fw"></i></a>
                         </li>
-                        <li class="list-inline-item border border-light rounded-circle text-center">
+                        <li class="list-inline-item rounded-circle text-center">
                             <a class="text-light text-decoration-none" target="_blank" href="https://twitter.com/"><i class="fab fa-twitter fa-lg fa-fw"></i></a>
                         </li>
-                        <li class="list-inline-item border border-light rounded-circle text-center">
+                        <li class="list-inline-item rounded-circle text-center">
                             <a class="text-light text-decoration-none" target="_blank" href="https://www.linkedin.com/"><i class="fab fa-linkedin fa-lg fa-fw"></i></a>
                         </li>
                     </ul>
                 </div>
             </div>
+
             <hr class="bg-light">
         </div>
 
-        <div class="w-100 py-3">
+        <div class="w-100 bg-black py-3">
             <div class="container">
                 <div class="row pt-2">
                     <div class="col-12">
                         <p class="text-left text-light">
-                            Copyright &copy; 2024 
+                            Copyright &copy; 2024 Mathion Shop
                         </p>
                     </div>
                 </div>
             </div>
         </div>
+
     </footer>
     <script src="https://kit.fontawesome.com/5f232b4c5b.js" crossorigin="anonymous"></script>
     <script src="js/bootstrap.min.js"></script>
     <script>
+        $(function(){
+            
+            $(".card").hover(function(){
+                $(this).css("transform", "scale(1.05)");
+            }, function(){
+                $(this).css("transform", "scale(1)");
+            });
+
+        });
         function toggleHeart(heart, imgSrc) {
             let isLoggedIn = false;
              

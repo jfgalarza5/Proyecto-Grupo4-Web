@@ -5,11 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Productos Femeninos</title>
 
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/5f232b4c5b.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+
+
 </head>
 <body class="bg-light">
+    
+    <button onclick="scrollToTop()" id="btnScrollTop" class="floating-button scroll-top">
+        <i class="fa fa-chevron-up"></i>
+    </button>
+
+    <a href="https://wa.me/593985359444" class="floating-button whatsapp-float" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
+
+    <div id="notification" class="notification">
+        Necesitas iniciar sesión antes de agregar un producto a la lista 
+        <a href="login.html">INICIAR SESIÓN</a>
+    </div>
+
     <header class="ps-5 pe-5 bg-white">
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="d-flex align-items-center col-2"> 
@@ -28,27 +47,20 @@
                             <a class="nav-link" href="mujeres.html">Mujeres ♀</a>
                         </li>
                     </ul>
-                    <div class="w-100 row justify-content-center align-items-center">
-                        <form class="form-inline d-flex col-8" role="search">
-                            <div class="form-group w-100">
-                                <input class="form-control me-2 border-top-0 border-end-0 border-start-0" type="search" placeholder="Busqueda" aria-label="Busqueda">
-                            </div>
-                        </form>
-                    </div>
                     <div class="iconos col-2 d-flex justify-content-end">
                         <ul class="navbar-nav gap-4">
-                            <li class="nav-item dropdown  d-none d-lg-flex">
-                                <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="fa fa-user text-dark fa-xl"></i>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i id="icon_user" class="fa fa-user text-dark fa-xl"></i>
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="login.html">Iniciar Sesion</a></li>
+                                    <li><a class="dropdown-item" href="login.html">Iniciar Sesión</a></li>
                                     <li><a class="dropdown-item" href="registro.html">Registrarse</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link position-relative text-decoration-none" href="" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    <i class="fa fa-cart-arrow-down text-dark fa-xl"></i>
+                                <a class="nav-link" href="#">
+                                    <i id="icon_cart" class="fa fa-cart-arrow-down text-dark fa-xl"></i>
                                 </a>
                             </li>
                         </ul>                 
@@ -57,6 +69,17 @@
             </div>
         </nav>
     </header>
+
+    <div id="topBar" class="top-bar">
+        <div class="marquee-container">
+            <marquee behavior="scroll" direction="left" scrollamount="10">
+                TODAS LAS <strong>BUCKET</strong> POR <strong>$20</strong> - ENVÍO GRATIS EN PEDIDOS MAYORES A $50 - APROVECHA YA 🔥
+            </marquee>
+            
+        </div>
+    </div>
+    
+    
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -102,7 +125,7 @@
             <div class="w-100 row justify-content-center align-items-center">
                 <form class="form-inline d-flex col-10" role="search">
                     <div class="form-group w-100">
-                        <input class="form-control me-2" type="search" placeholder="Busqueda" aria-label="Busqueda">
+                        <input class="form-control me-2 " type="search" placeholder="Busqueda" aria-label="Busqueda">
                     </div>
                 </form>
             </div>
@@ -134,147 +157,148 @@
     </div>
 
     <div class="container py-5">
-        <h1 class="text-center text-black mb-4 title-stylish">Productos Estelares Femeninos</h1>
+        <h1 class="text-center text-black mb-4 title-stylish">Productos Estelares Masculinos </h1>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 ">
 
             <div class="col mb-4">
                 <div class="card h-100 shadow-sm">
                     <div class="card-body text-center">
-                        <div class="mb-2 text-danger d-flex justify-content-end">
-                            <span>❤️3</span>
-                        </div>
-                        <img src="https://resources.claroshop.com/medios-plazavip/t1/172517927710D28jpg" class="card-img-top" alt="Pantalones deportivos">
-                        <h5 class="card-title text-dark mt-3">$19.99</h5>
-                        <p class="card-text text-muted">Vestido Casual</p>
-                        <a href="#" class="btn btn-outline-warning rounded-pill">Detalles</a>
-                    </div>
-                </div>
+                        <img  src="https://shop-cons.com/cdn/shop/files/0R0A2528_400x.jpg?v=1734185630"  style=" width: 90%;  height: 400px;" class="card-img-top10" alt="BUCKET NEGRO">
+                        <h5 class="card-title text-dark mt-3">$40.99</h5>
+                        <p class="card-text text-muted">BUZO NEGRO ♀</p>
+                        <a href="producto.html" class="btn btn-custom">Detalles</a>
+                        <!-- Corazón alineado a la derecha -->
+            <div class="heart-container d-flex justify-content-end">
+                <i class="fa fa-heart" onclick="toggleHeart(this)"></i>
+            </div>         
+            </div>
+            </div>
             </div>
 
             <div class="col mb-4">
                 <div class="card h-100 shadow-sm">
                     <div class="card-body text-center">
-                        <div class="mb-2 text-danger d-flex justify-content-end">
-                            <span>❤️7</span>
-                        </div>
-                        <img src="https://media.istockphoto.com/id/1282560707/es/foto/hermosa-morena-joven-mujer-con-perfecto-cuerpo-blanco-blusa-y-chaqueta-beige-pantalones-y.jpg?s=612x612&w=0&k=20&c=ZSxVYY4TZpgK6avVLKQ1iGqimObiHjhQNRKKP1MKx5Q=" class="card-img-top" alt="Camiseta verde">
-                        <h5 class="card-title text-dark mt-3">$31.99</h5>
-                        <p class="card-text text-muted">Blusa Elegante</p>
-                        <a href="#" class="btn btn-outline-warning rounded-pill">Detalles</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col mb-4">
-                <div class="card h-100 shadow-sm">
-                    <div class="card-body text-center">
-                        <div class="mb-2 text-danger d-flex justify-content-end">
-                            ❤️<span>6</span>
-                        </div>
-                        <img src="https://img.bestdealplus.com/ae04/kf/H7540562e3fc54b94b1746df7d5e96d975.jpg" class="card-img-top" alt="Pantalones cargo">
+                        <img src="https://shop-cons.com/cdn/shop/files/0R0A1407_400x.jpg?v=1734185927"  style=" width: 90%;  height: 400px;" class="card-img-top11" alt="Reloj deportivo">
                         <h5 class="card-title text-dark mt-3">$20.99</h5>
-                        <p class="card-text text-muted">Sandalias</p>
-                        <a href="#" class="btn btn-outline-warning rounded-pill">Detalles</a>
+                        <p class="card-text text-muted">GORRO CUBO  VERDE ♀</p>
+                        <a href="#" class="btn btn-custom">Detalles</a>
+                        <!-- Corazón alineado a la derecha -->
+            <div class="heart-container d-flex justify-content-end">
+                <i class="fa fa-heart" onclick="toggleHeart(this)"></i>
+            </div>
                     </div>
                 </div>
             </div>
 
-            
             <div class="col mb-4">
                 <div class="card h-100 shadow-sm">
                     <div class="card-body text-center">
-                        <div class="mb-2 text-danger d-flex justify-content-end">
-                            ❤️<span>5</span>
+                        <img src="https://shop-cons.com/cdn/shop/files/0R0A0917_300x.jpg?v=1726253499"  style=" width: 90%;  height: 400px;" class="card-img-top12" alt="Chaqueta negra">
+                        <h5 class="card-title text-dark mt-3">$14.99</h5>
+                        <p class="card-text text-muted">SHORT BOXER ROSA ♀</p>
+                        <a href="#" class="btn btn-custom">Detalles</a>
+                        <div class="heart-container d-flex justify-content-end">
+                            <i class="fa fa-heart" onclick="toggleHeart(this)"></i>
                         </div>
-                        <img src="https://acdn.mitiendanube.com/stores/879/746/products/vakapi_fondo-blanco_guchi-310-71816b336707add90117200332978734-480-0.jpg" class="card-img-top" alt="Reloj deportivo">
-                        <h5 class="card-title text-dark mt-3">$39.99</h5>
-                        <p class="card-text text-muted">Bolso de Mano</p>
-                        <a href="#" class="btn btn-outline-warning rounded-pill">Detalles</a>
                     </div>
                 </div>
             </div>
 
-            
             <div class="col mb-4">
                 <div class="card h-100 shadow-sm">
                     <div class="card-body text-center">
-                        <div class="mb-2 text-danger d-flex justify-content-end">
-                            ❤️<span>4</span>
+                        <img src="https://shop-cons.com/cdn/shop/files/0R0A1184_400x.jpg?v=1726254365"  style=" width: 90%;  height: 400px;"  class="card-img-top13" alt="Camiseta verde">
+                        <h5 class="card-title text-dark mt-3">$20.99</h5>
+                        <p class="card-text text-muted">POLERA BLANCA ♀</p>
+                        <a href="#" class="btn btn-custom">Detalles</a>
+                        <div class="heart-container d-flex justify-content-end">
+                            <i class="fa fa-heart" onclick="toggleHeart(this)"></i>
                         </div>
-                        <img src="https://st4.depositphotos.com/16122460/23476/i/450/depositphotos_234762490-stock-photo-young-woman-perfume-bottle-white.jpg" class="card-img-top" alt="Chaqueta negra">
-                        <h5 class="card-title text-dark mt-3">$59.99</h5>
-                        <p class="card-text text-muted">Perfume Femenino</p>
-                        <a href="#" class="btn btn-outline-warning rounded-pill">Detalles</a>
                     </div>
                 </div>
             </div>
 
-           
             <div class="col mb-4">
                 <div class="card h-100 shadow-sm">
                     <div class="card-body text-center">
-                        <div class="mb-2 text-danger d-flex justify-content-end">
-                            ❤️<span>5</span>
+                        <img src="https://shop-cons.com/cdn/shop/files/0R0A0471_400x.jpg?v=1726254164"  style=" width: 90%;  height: 400px;" class="card-img-top14" alt="Zapatos casuales">
+                        <h5 class="card-title text-dark mt-3">$15.99</h5>
+                        <p class="card-text text-muted">SHORT BOXER VERDE ♀</p>
+                        <a href="#" class="btn btn-custom">Detalles</a>
+                        <div class="heart-container d-flex justify-content-end">
+                            <i class="fa fa-heart" onclick="toggleHeart(this)"></i>
                         </div>
-                        <img src="https://www.tottoecuador.com/images/large/60722403331077/Gafas_de_Sol_Totto_Polarizadas_Rodador_U_614_1_ZOOM.jpg" class="card-img-top" alt="Zapatos casuales">
-                        <h5 class="card-title text-dark mt-3">$19.99</h5>
-                        <p class="card-text text-muted">Gafas de Sol de Moda</p>
-                        <a href="#" class="btn btn-outline-warning rounded-pill">Detalles</a>
                     </div>
                 </div>
             </div>
 
-           
             <div class="col mb-4">
                 <div class="card h-100 shadow-sm">
                     <div class="card-body text-center">
-                        <div class="mb-2 text-danger d-flex justify-content-end">
-                            ❤️<span>6</span>
+                        <img src="https://shop-cons.com/cdn/shop/files/0R0A1668_300x.jpg?v=1700656514"   style=" width: 90%;  height: 400px;" class="card-img-top15" alt="Pantalones cargo">
+                        <h5 class="card-title text-dark mt-3">$16.99</h5>
+                        <p class="card-text text-muted">MINIFALDA BEIGE ♀</p>
+                        <a href="#" class="btn btn-custom">Detalles</a>
+                        <div class="heart-container d-flex justify-content-end">
+                            <i class="fa fa-heart" onclick="toggleHeart(this)"></i>
                         </div>
-                        <img src="https://keeshoes.es/a/ale/auction_image/image1_193025.s790/zapatillas-con-plataforma-birikti-blancas-blanco-790x790.jpeg?_=1711807149.91409541" class="card-img-top" alt="Mochila">
-                        <h5 class="card-title text-dark mt-3">$25.99</h5>
-                        <p class="card-text text-muted">Zapatillas deportivas</p>
-                        <a href="#" class="btn btn-outline-warning rounded-pill">Detalles</a>
                     </div>
                 </div>
             </div>
 
-            
             <div class="col mb-4">
                 <div class="card h-100 shadow-sm">
                     <div class="card-body text-center">
-                        <div class="mb-2 text-danger d-flex justify-content-end">
-                            ❤️<span>3</span>
+                        <img src="https://shop-cons.com/cdn/shop/files/0R0A0227_3834f43f-bce2-4874-92eb-0829982126d4_300x.jpg?v=1700659550"  style=" width: 90%;  height: 400px;" class="card-img-top16" alt="Mochila">
+                        <h5 class="card-title text-dark mt-3">$44.99</h5>
+                        <p class="card-text text-muted">BUZO CREMA ♀</p>
+                        <a href="#" class="btn btn-custom">Detalles</a>
+                        <div class="heart-container d-flex justify-content-end">
+                            <i class="fa fa-heart" onclick="toggleHeart(this)"></i>
                         </div>
-                        <img src="https://www.argentariaperu.com/wp-content/uploads/2023/02/21772-33612-x.jpg.webp" class="card-img-top" alt="Gafas de sol">
-                        <h5 class="card-title text-dark mt-3">$9.99</h5>
-                        <p class="card-text text-muted">Pulsera de Plata</p>
-                        <a href="#" class="btn btn-outline-warning rounded-pill">Detalles</a>
                     </div>
                 </div>
             </div>
 
-            
             <div class="col mb-4">
                 <div class="card h-100 shadow-sm">
                     <div class="card-body text-center">
-                        <div class="mb-2 text-danger d-flex justify-content-end">
-                            ❤️<span>2</span>
+                        <img src="https://shop-cons.com/cdn/shop/files/0R0A1805_400x.jpg?v=1700656621"  style=" width: 90%;  height: 400px;" class="card-img-top17" alt="Gafas de sol">
+                        <h5 class="card-title text-dark mt-3">$16.99</h5>
+                        <p class="card-text text-muted">MINIFALDA NEGRA ♀</p>
+                        <a href="#" class="btn btn-custom">Detalles</a>
+                        <div class="heart-container d-flex justify-content-end">
+                            <i class="fa fa-heart" onclick="toggleHeart(this)"></i>
                         </div>
-                        <img src="https://i.etsystatic.com/8196303/r/il/75fc23/4654778751/il_fullxfull.4654778751_m1or.jpg" class="card-img-top" alt="Perfume masculino">
-                        <h5 class="card-title text-dark mt-3">$19.99</h5>
-                        <p class="card-text text-muted">Collar de plata</p>
-                        <a href="#" class="btn btn-outline-warning rounded-pill">Detalles</a>
                     </div>
                 </div>
             </div>
+
+            <div class="col mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body text-center">
+                        <img src="https://shop-cons.com/cdn/shop/files/0R0A1005_300x.jpg?v=1726258579"  style=" width: 90%;  height: 400px;" class="card-img-top18" alt="Perfume masculino">
+                        <h5 class="card-title text-dark mt-3">$10.99</h5>
+                        <p class="card-text text-muted">GORRA BLANCA ♀</p>
+                        <a href="#" class="btn btn-custom">Detalles</a>
+                        <div class="heart-container d-flex justify-content-end">
+                            <i class="fa fa-heart" onclick="toggleHeart(this)"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
         </div>
     </div>
-    <footer class="bg-dark mt-5">
+    <footer class="bg-dark">
         <div class="container">
             <div class="row justify-content-around">
                 <div class="col-md-4 pt-5">
-                    <h4 class="text-light border-bottom pb-3 border-light">Tienda</h4>
+                    <h4 class="text-light border-bottom pb-3 border-light">Mathion Shop</h4>
                     <ul class="list-unstyled text-light footer-link-list">
                         <li>
                             <i class="fas fa-map-marker-alt fa-fw"></i>
@@ -282,11 +306,11 @@
                         </li>
                         <li>
                             <i class="fa fa-phone fa-fw"></i>
-                            <a class="text-decoration-none" href="">0980098210</a>
+                            <a class="text-decoration-none text-white" href="">0980098210</a>
                         </li>
                         <li>
                             <i class="fa fa-envelope fa-fw"></i>
-                            <a class="text-decoration-none" href="">jfgalarza5@espe.edu.ec</a>
+                            <a class="text-decoration-none text-white" href="">jfgalarza5@espe.edu.ec</a>
                         </li>
                     </ul>
                 </div>
@@ -294,47 +318,151 @@
                 <div class="col-md-4 pt-5">
                     <h4 class="text-light border-bottom pb-3 border-light">Explora</h4>
                     <ul class="list-unstyled text-light footer-link-list">
-                        <li><a class="text-decoration-none" href="index.html">Inicio</a></li>
-                        <li><a class="text-decoration-none" href="Conocenos.html">Conocenos</a></li>
-                        <li><a class="text-decoration-none" href="hombres.html">Hombres</a></li>
-                        <li><a class="text-decoration-none" href="mujeres.html">Mujeres</a></li>
+                        <li><a class="text-decoration-none text-white" href="index.html">Inicio</a></li>
+                        <li><a class="text-decoration-none text-white" href="Conocenos.html">Conocenos</a></li>
+                        <li><a class="text-decoration-none text-white" href="hombres.html">Hombres</a></li>
+                        <li><a class="text-decoration-none text-white" href="mujeres.html">Mujeres</a></li>
                     </ul>
                 </div>
 
                 <div class="col-md-4 pt-5">
                     <h4 class="text-light border-bottom pb-3 border-light">Redes Sociales</h4>
                     <ul class="list-inline text-left footer-icons">
-                        <li class="list-inline-item border border-light rounded-circle text-center">
+                        <li class="list-inline-item rounded-circle text-center">
                             <a class="text-light text-decoration-none" target="_blank" href="http://facebook.com/"><i class="fab fa-facebook-f fa-lg fa-fw"></i></a>
                         </li>
-                        <li class="list-inline-item border border-light rounded-circle text-center">
+                        <li class="list-inline-item rounded-circle text-center">
                             <a class="text-light text-decoration-none" target="_blank" href="https://www.instagram.com/"><i class="fab fa-instagram fa-lg fa-fw"></i></a>
                         </li>
-                        <li class="list-inline-item border border-light rounded-circle text-center">
+                        <li class="list-inline-item rounded-circle text-center">
                             <a class="text-light text-decoration-none" target="_blank" href="https://twitter.com/"><i class="fab fa-twitter fa-lg fa-fw"></i></a>
                         </li>
-                        <li class="list-inline-item border border-light rounded-circle text-center">
+                        <li class="list-inline-item rounded-circle text-center">
                             <a class="text-light text-decoration-none" target="_blank" href="https://www.linkedin.com/"><i class="fab fa-linkedin fa-lg fa-fw"></i></a>
                         </li>
                     </ul>
                 </div>
             </div>
+
             <hr class="bg-light">
         </div>
 
-        <div class="w-100 py-3">
+        <div class="w-100 bg-black py-3">
             <div class="container">
                 <div class="row pt-2">
                     <div class="col-12">
                         <p class="text-left text-light">
-                            Copyright &copy; 2024 
+                            Copyright &copy; 2024 Mathion Shop
                         </p>
                     </div>
                 </div>
             </div>
         </div>
+
     </footer>
     <script src="https://kit.fontawesome.com/5f232b4c5b.js" crossorigin="anonymous"></script>
-    <script src="js/bootstrap.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+        
+        $(document).ready(function(){
+    
+            //  Efecto hover en tarjetas
+            $(".card").hover(function(){
+                $(this).css("transform", "scale(1.05)");
+            }, function(){
+                $(this).css("transform", "scale(1)");
+            });
+    
+            // Efecto de rebote en el icono del usuario (Corregido)
+            $("#icon_user").hover(function(){
+                $(this).stop().animate({ top: "-5px" }, 500, "easeOutBounce");
+            }, function(){
+                $(this).stop().animate({ top: "0px" }, 500, "easeOutBounce");
+            });
+    
+            // Efecto de rebote en el icono del carrito (Corregido)
+            $("#icon_cart").click(function(){
+                $(this).stop().animate(
+                    { left: "+=20px" },
+                    500,
+                    "easeOutBounce",
+                    function(){
+                        $(this).stop().animate({ left: "-=20px" }, 500, "easeOutBounce");
+                    }
+                );
+            });
+            //efecto de movimiento en el corazon
+            $(".fa-heart").click(function(){
+                let isLoggedIn = false;
+                if (!isLoggedIn) {
+                    $(this).css("position", "relative")
+                        .animate({ top: "+=20px" }, 300)
+                        .animate({ top: "-=20px" }, 300);
+                    showNotification();
+                    return;
+                }
+                $(this).toggleClass("liked");
+            });
+
+            //  Notificación para sesión no iniciada
+            function showNotification() {
+                const notification = $("#notification");
+                notification.addClass("show");
+
+                setTimeout(() => {
+                    notification.removeClass("show");
+                }, 4000); 
+            }
+
+            //  Botón para volver arriba con animación suave
+            window.onscroll = function () {
+                let btn = $("#btnScrollTop");
+                if ($(document).scrollTop() > 300) {
+                    btn.fadeIn();
+                } else {
+                    btn.fadeOut();
+                }
+            };
+            // desplazar suavemente la página
+            function scrollToTop() {
+                $("html, body").animate({ scrollTop: 0 }, 800, "easeInOutExpo");
+            }
+            //mostrar una notificación
+            function toggleHeart(heart, imgSrc) {
+                let isLoggedIn = false;
+                if (!isLoggedIn) {
+                    showNotification();
+                    return;
+                }
+                heart.classList.toggle("liked");
+            }
+            window.onscroll = function () {
+            let btn = document.getElementById("btnScrollTop");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                btn.style.display = "block";
+            } else {
+                btn.style.display = "none";
+            }
+        };
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+        });
+        window.onscroll = function () {
+            let btn = document.getElementById("btnScrollTop");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                btn.style.display = "block";
+            } else {
+                btn.style.display = "none";
+            }
+        };
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+
+        
+    </script>
 </body>
 </html>

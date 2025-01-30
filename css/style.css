@@ -121,3 +121,14 @@
     color: rgb(247, 124, 144); 
 }
 
+.card {
+    transition: transform 0.3s ease-in-out; /* Suaviza la animación */
+}
+
+#icon_user{
+    position: relative;
+}
+
+#icon_cart{
+    position: relative;
+}

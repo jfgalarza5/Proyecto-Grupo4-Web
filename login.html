@@ -92,7 +92,7 @@
         <div class="container">
             <div class="row justify-content-around">
                 <div class="col-md-4 pt-5">
-                    <h4 class="text-light border-bottom pb-3 border-light">Tienda</h4>
+                    <h4 class="text-light border-bottom pb-3 border-light">Mathion Shop</h4>
                     <ul class="list-unstyled text-light footer-link-list">
                         <li>
                             <i class="fas fa-map-marker-alt fa-fw"></i>
@@ -100,11 +100,11 @@
                         </li>
                         <li>
                             <i class="fa fa-phone fa-fw"></i>
-                            <a class="text-decoration-none" href="">0980098210</a>
+                            <a class="text-decoration-none text-white" href="">0980098210</a>
                         </li>
                         <li>
                             <i class="fa fa-envelope fa-fw"></i>
-                            <a class="text-decoration-none" href="">jfgalarza5@espe.edu.ec</a>
+                            <a class="text-decoration-none text-white" href="">jfgalarza5@espe.edu.ec</a>
                         </li>
                     </ul>
                 </div>
@@ -112,26 +112,26 @@
                 <div class="col-md-4 pt-5">
                     <h4 class="text-light border-bottom pb-3 border-light">Explora</h4>
                     <ul class="list-unstyled text-light footer-link-list">
-                        <li><a class="text-decoration-none" href="index.html">Inicio</a></li>
-                        <li><a class="text-decoration-none" href="Conocenos.html">Conocenos</a></li>
-                        <li><a class="text-decoration-none" href="hombres.html">Hombres</a></li>
-                        <li><a class="text-decoration-none" href="mujeres.html">Mujeres</a></li>
+                        <li><a class="text-decoration-none text-white" href="index.html">Inicio</a></li>
+                        <li><a class="text-decoration-none text-white" href="Conocenos.html">Conocenos</a></li>
+                        <li><a class="text-decoration-none text-white" href="hombres.html">Hombres</a></li>
+                        <li><a class="text-decoration-none text-white" href="mujeres.html">Mujeres</a></li>
                     </ul>
                 </div>
 
                 <div class="col-md-4 pt-5">
                     <h4 class="text-light border-bottom pb-3 border-light">Redes Sociales</h4>
                     <ul class="list-inline text-left footer-icons">
-                        <li class="list-inline-item border border-light rounded-circle text-center">
+                        <li class="list-inline-item rounded-circle text-center">
                             <a class="text-light text-decoration-none" target="_blank" href="http://facebook.com/"><i class="fab fa-facebook-f fa-lg fa-fw"></i></a>
                         </li>
-                        <li class="list-inline-item border border-light rounded-circle text-center">
+                        <li class="list-inline-item rounded-circle text-center">
                             <a class="text-light text-decoration-none" target="_blank" href="https://www.instagram.com/"><i class="fab fa-instagram fa-lg fa-fw"></i></a>
                         </li>
-                        <li class="list-inline-item border border-light rounded-circle text-center">
+                        <li class="list-inline-item rounded-circle text-center">
                             <a class="text-light text-decoration-none" target="_blank" href="https://twitter.com/"><i class="fab fa-twitter fa-lg fa-fw"></i></a>
                         </li>
-                        <li class="list-inline-item border border-light rounded-circle text-center">
+                        <li class="list-inline-item rounded-circle text-center">
                             <a class="text-light text-decoration-none" target="_blank" href="https://www.linkedin.com/"><i class="fab fa-linkedin fa-lg fa-fw"></i></a>
                         </li>
                     </ul>
@@ -141,12 +141,12 @@
             <hr class="bg-light">
         </div>
 
-        <div class="w-100 py-3">
+        <div class="w-100 bg-black py-3">
             <div class="container">
                 <div class="row pt-2">
                     <div class="col-12">
                         <p class="text-left text-light">
-                            Copyright &copy; 2024 
+                            Copyright &copy; 2024 Mathion Shop
                         </p>
                     </div>
                 </div>
@@ -158,27 +158,28 @@
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/5f232b4c5b.js" crossorigin="anonymous"></script>
     <script src="js/JQueryV3.7.1.js"></script>
+    <script src="js/jquery.easing.1.3.min.js"></script>
 
     <script>
         $(document).ready(function() {
             function mostrarError(elemento, mensaje) {
                 elemento
                     .addClass('errorinput')
-                    .after(`<div class="text-danger errormessage">${mensaje}</div>`);
+                    .after(`<div class="text-danger errormessage" style="display: none;">${mensaje}</div>`);
+                $('.errormessage').fadeIn(500, 'easeOutExpo');
             }
-
+    
             function limpiarErrores() {
-                $('.errormessage').remove();
+                $('.errormessage').fadeOut(300, 'easeInExpo', function() { $(this).remove(); });
                 $('.errorinput').removeClass('errorinput');
             }
-
+    
             $("#loginForm").submit(function(event) {
                 limpiarErrores();
                 var email = $("#email").val();
                 var password = $("#password").val();
                 var valid = true;
-
-                // Validación del correo electrónico
+    
                 if (email == "") {
                     mostrarError($("#email"), "El correo electrónico es obligatorio.");
                     valid = false;
@@ -186,8 +187,7 @@
                     mostrarError($("#email"), "El correo electrónico debe incluir un '@'.");
                     valid = false;
                 }
-
-                // Validación de la contraseña
+    
                 if (password == "") {
                     mostrarError($("#password"), "La contraseña es obligatoria.");
                     valid = false;
@@ -195,12 +195,33 @@
                     mostrarError($("#password"), "La contraseña debe tener entre 5 y 12 caracteres.");
                     valid = false;
                 }
-
-                // Si alguna validación falla, no enviamos el formulario
+    
                 if (!valid) {
                     event.preventDefault();
                 }
             });
+    
+            // Animación de entrada
+            $(".col-10, .col-6").hide().fadeIn(1000, 'easeOutBounce');
+    
+            // Cambiar la opacidad cuando el mouse pasa por un contenedor
+            $(".col-10").hover(
+                function() {
+                    $(this).siblings(".col-6").css({ "opacity": "0.5", "transition": "0.3s" });
+                },
+                function() {
+                    $(this).siblings(".col-6").css({ "opacity": "1", "transition": "0.3s" });
+                }
+            );
+    
+            $(".col-6").hover(
+                function() {
+                    $(this).siblings(".col-10").css({ "opacity": "0.5", "transition": "0.3s" });
+                },
+                function() {
+                    $(this).siblings(".col-10").css({ "opacity": "1", "transition": "0.3s" });
+                }
+            );
         });
     </script>
 </body>

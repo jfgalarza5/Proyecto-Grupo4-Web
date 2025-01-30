@@ -66,7 +66,7 @@
 
 
 .top-bar strong {
-    color: #5df0b7; 
+    color: #e65df0; 
 }
 
 .marquee-container {
@@ -250,6 +250,37 @@
     content: url("https://shop-cons.com/cdn/shop/files/0R0A7802_300x.jpg?v=1726253414");
 }
 
+<<<<<<< HEAD
+.card-img-top10:hover {
+    content: url("https://shop-cons.com/cdn/shop/files/0R0A2526_1a18c6a9-9bbc-4318-89ea-0b0a64b34146_300x.jpg?v=1734185630");
+}
+.card-img-top11:hover {
+    content: url("https://shop-cons.com/cdn/shop/files/0R0A1409_300x.jpg?v=1734185927");
+}
+.card-img-top12:hover {
+    content: url("https://shop-cons.com/cdn/shop/files/0R0A1000_400x.jpg?v=1726253499");
+}
+.card-img-top13:hover {
+    content: url("https://shop-cons.com/cdn/shop/files/0R0A1096_4734a148-aa5c-471d-aed5-bc18491cfbdf_300x.jpg?v=1726254365");
+}
+.card-img-top14:hover {
+    content: url("https://shop-cons.com/cdn/shop/files/0R0A0448_300x.jpg?v=1726254164");
+}
+.card-img-top15:hover {
+    content: url("https://shop-cons.com/cdn/shop/files/0R0A1614_400x.jpg?v=1700656508");
+}
+.card-img-top16:hover {
+    content: url("https://shop-cons.com/cdn/shop/files/0R0A0193_400x.jpg?v=1700659551");
+}
+.card-img-top17:hover {
+    content: url("https://shop-cons.com/cdn/shop/files/0R0A1817_300x.jpg?v=1700656621");
+}
+.card-img-top18:hover {
+    content: url("https://shop-cons.com/cdn/shop/files/0R0A1017_400x.jpg?v=1726258579");
+}
+
+
+=======
 /* Estilos del corazón */
 .heart-container {
     margin-top: 10px;
@@ -491,3 +522,4 @@
 .carrito-producto img{
     width: 100%;
 }
+>>>>>>> 5b14f7219579bd69d1927c179a7d389ed63631d1

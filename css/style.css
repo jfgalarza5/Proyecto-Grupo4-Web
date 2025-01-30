@@ -68,6 +68,122 @@
     transition: background-color 0.3s ease;
 }
 
+.btn-custom {
+    background-color: rgb(62, 60, 60); 
+    color: white; 
+    border: 2px solid rgb(62, 60, 60); 
+    padding: 6px 19px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 15px;
+    transition: all 0.3s ease-in-out;
+}
+
+
+.btn-custom:hover {
+    background-color: white; 
+    color: rgb(62, 60, 60); 
+    border: 2px solid rgb(62, 60, 60); 
+}
+
+
+/* Estilos del corazón */
+.heart-container {
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.heart-container .fa-heart {
+    color: gray; 
+    font-size: 24px;
+    transition: color 0.3s ease;
+}
+
+.heart-container .fa-heart.liked {
+    color: rgb(247, 124, 144); 
+}
+
+.notification {
+    position: fixed;
+    bottom: -100px; 
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #1c1e20;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    display: block;
+    opacity: 0;
+    transition: bottom 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    z-index: 1000;
+}
+
+.notification.show {
+    bottom: 20px;
+    opacity: 1;
+}
+
+.notification a {
+    color: white;
+    font-weight: bold;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+.notification a:hover {
+    text-decoration: underline;
+}
+
+.floating-button {
+    position: fixed;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    border: none;
+}
+
+
+.scroll-top {
+    bottom: 70px; 
+    background-color: #05589b; 
+    color: white;
+    display: none; 
+    z-index: 1000; 
+}
+
+
+.scroll-top i {
+    font-size: 20px; 
+}
+
+
+.scroll-top:hover {
+    background-color: #1f2122;
+}
+
+.whatsapp-float {
+    bottom: 15px;
+    z-index: 1000;
+}
+
+.whatsapp-float img {
+    width: 50px; 
+    height: 60px;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.2);
+}
+
+
 
 .card-img-top1:hover {
     content: url("https://shop-cons.com/cdn/shop/files/IMG-2632_300x.jpg?v=1734447515");
@@ -121,14 +237,3 @@
     color: rgb(247, 124, 144); 
 }
 
-.card {
-    transition: transform 0.3s ease-in-out; /* Suaviza la animación */
-}
-
-#icon_user{
-    position: relative;
-}
-
-#icon_cart{
-    position: relative;
-}

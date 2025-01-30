@@ -11,6 +11,15 @@
             background-color: #2d5784; 
             color: white;
         }
+        .errorinput {
+            border: 1px solid #ff8894;
+            background-color: #fff8f8;
+        }
+        .errormessage {
+            color: #ff8894;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
     </style>
 </head>
 <body>
@@ -138,20 +147,19 @@
                     <a href="login.html">
                         <button class="btn btn-outline-light">Iniciar Sesion</button>
                     </a>
-                    
                 </div>
     
                 <div class="col-md-6 p-5 bg-white">
                     <h3 class="mb-4 font-weight-bold">Registrarte</h3>
-                    <form>
+                    <form id="registroForm">
                         <div class="mb-3">
-                            <input type="text" class="form-control" placeholder="Nombre y Apellido" required>
+                            <input type="text" class="form-control" id="nombre" placeholder="Nombre y Apellido">
                         </div>
                         <div class="mb-3">
-                            <input type="email" class="form-control" placeholder="Correo electrónico" required>
+                            <input type="email" class="form-control" id="email" placeholder="Correo electrónico">
                         </div>
                         <div class="mb-4">
-                            <input type="password" class="form-control" placeholder="Contraseña" required>
+                            <input type="password" class="form-control" id="password" placeholder="Contraseña">
                         </div>
                         <div class="form-check text-center mb-4">
                             <label class="form-check-label">
@@ -163,8 +171,6 @@
                         <button type="submit" class="btn btn-dark w-100">Enviar</button>
                     </form>
                 </div>
-                
-               
             </div>
         </div>
     </section>
@@ -237,5 +243,77 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/5f232b4c5b.js" crossorigin="anonymous"></script>
+    <script src="js/JQueryV3.7.1.js"></script>
+    <script>
+        $(document).ready(function() {
+            function mostrarError(elemento, mensaje) {
+                elemento
+                    .addClass('errorinput')
+                    .parent()
+                    .append(`<div class="errormessage">${mensaje}</div>`);
+            }
+
+            function limpiarErrores() {
+                $('.errormessage').remove();
+                $('.errorinput').removeClass('errorinput');
+            }
+
+            $("#registroForm").submit(function(event) {
+                event.preventDefault();
+                limpiarErrores();
+                
+                var nombre = $("#nombre").val().trim();
+                var email = $("#email").val().trim();
+                var password = $("#password").val();
+                var terminos = $("#terminos").is(":checked");
+                var valid = true;
+
+                // Validación del nombre
+                if (nombre === "") {
+                    mostrarError($("#nombre"), "El nombre es obligatorio");
+                    valid = false;
+                } else if (nombre.length < 3) {
+                    mostrarError($("#nombre"), "El nombre debe tener al menos 3 caracteres");
+                    valid = false;
+                } else if (!/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/.test(nombre)) {
+                    mostrarError($("#nombre"), "El nombre solo debe contener letras");
+                    valid = false;
+                }
+
+                // Validación del email
+                if (email === "") {
+                    mostrarError($("#email"), "El correo electrónico es obligatorio");
+                    valid = false;
+                } else {
+                    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(email)) {
+                        mostrarError($("#email"), "Ingresa un correo electrónico válido");
+                        valid = false;
+                    }
+                }
+
+                // Validación de la contraseña
+                if (password === "") {
+                    mostrarError($("#password"), "La contraseña es obligatoria");
+                    valid = false;
+                } else if (password.length < 5 || password.length > 12) {
+                    mostrarError($("#password"), "La contraseña debe tener entre 5 y 12 caracteres.");
+                    valid = false;
+                }
+
+                // Validación de términos y condiciones
+                if (!terminos) {
+                    $("#terminos").parent().after('<div class="errormessage text-center">Debes aceptar los términos y condiciones</div>');
+                    valid = false;
+                }
+
+                if (valid) {
+                    // Aquí puedes agregar el código para enviar el formulario
+                    console.log("Formulario válido - Datos listos para enviar");
+                    // this.submit(); // Descomentar para enviar el formulario
+                }
+            });
+        });
+    </script>
 </body>
 </html>

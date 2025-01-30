@@ -13,7 +13,6 @@
 
 .card{
     border: 0;
-    transition: transform 0.3s ease-in-out;
 }
 
 .tarjeta {
@@ -58,7 +57,7 @@
 /* -------------------------------Estilos Jennifer */
 
 .top-bar {
-    position: fixed;
+    position: relative;
     top: 0;
     left: 0;
     width: 100%;
@@ -69,7 +68,7 @@
     font-weight: bold;
     padding: 10px 0;
     z-index: 1001; 
-    transition: top 0.5s ease-in-out; 
+    transition: top 1ms ; 
 }
 
 
@@ -80,12 +79,23 @@
 
 
 .top-bar strong {
-    color: #f05dda; 
+    color: #5df0b7; 
 }
 
-header {
-    margin-top: 40px;
+.marquee-container {
+    width: 50%; 
+    margin: auto; 
+    overflow: hidden; 
 }
+
+.top-bar marquee {
+    display: block;
+    width: 100%;
+    white-space: nowrap;
+}
+
+
+
 
 
 .title-stylish {
@@ -306,7 +316,7 @@ header {
 
 .precio_producto {
     font-size: 30px;
-    color: #337;
+    color: #e74c3c;
     font-weight: bold;
     margin: 10px 0;
 }
@@ -315,11 +325,6 @@ header {
     display: flex;
     align-items: center;
     margin: 25px 0;
-}
-
-#num_producto{
-    width: 15%;
-    border: 0;
 }
 
 #cat {
@@ -436,11 +441,16 @@ header {
 .form_comentario button {
     width: 150px;
     padding: 10px;
+    background-color: #e74c3c;
     color: white;
     border: none;
     cursor: pointer;
     transition: background-color 0.3s;
     align-self: flex-end;
+}
+
+.form_comentario button:hover {
+    background-color: #c0392b;
 }
 
 #lista_comentario{
@@ -475,14 +485,4 @@ header {
 .item_comentario > div p {
     font-size: 14px;
     color: #555;
-}
-
-.carrito-producto{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.carrito-producto img{
-    width: 100%;
 }

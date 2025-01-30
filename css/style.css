@@ -74,6 +74,53 @@
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Estilos del corazón */
+.heart-container {
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.heart-container .fa-heart {
+    color: gray; 
+    font-size: 24px;
+    transition: color 0.3s ease;
+}
+
+.heart-container .fa-heart.liked {
+    color: rgb(247, 124, 144); 
+}
+
+.notification {
+    position: fixed;
+    bottom: -100px; 
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #3d4855;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    display: block;
+    opacity: 0;
+    transition: bottom 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    z-index: 1000;
+}
+
+.notification.show {
+    bottom: 20px;
+    opacity: 1;
+}
+
+.notification a {
+    color: white;
+    font-weight: bold;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+.notification a:hover {
+    text-decoration: underline;
+}
 
 .card-img-top1:hover {
     content: url("https://shop-cons.com/cdn/shop/files/IMG-2632_300x.jpg?v=1734447515");
@@ -110,20 +157,3 @@
 .card-img-top9:hover {
     content: url("https://shop-cons.com/cdn/shop/files/0R0A7802_300x.jpg?v=1726253414");
 }
-
-/* Estilos del corazón */
-.heart-container {
-    margin-top: 10px;
-    cursor: pointer;
-}
-
-.heart-container .fa-heart {
-    color: gray; 
-    font-size: 24px;
-    transition: color 0.3s ease;
-}
-
-.heart-container .fa-heart.liked {
-    color: rgb(247, 124, 144); 
-}
-

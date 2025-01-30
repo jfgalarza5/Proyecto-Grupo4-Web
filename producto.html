@@ -3,22 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Producto</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        .fondo {
-            background-color: #2d5784; 
-            color: white;
-        }
-    </style>
+    <script src="https://kit.fontawesome.com/5f232b4c5b.js" crossorigin="anonymous"></script>
+    <script src="js/JQueryV3.7.1.js"></script>
+    <script src="js/jquery.easing.1.3.min.js"></script>
+    <script>
+        $(function(){
+            let puntaje=0;
+            $(".estrella").click(function(){
+                for(let i=1;i<=5;i++){
+                    let star = $("#star"+i+" + label");
+                    star.css("color", "");
+                    if(i<=$(this).val()){
+                        star.css("color", "#f39c12");
+                        puntaje=$(this).val();
+                    }
+                }
+            });
+
+            $("form").submit(function(e){
+                e.preventDefault();
+            });
+
+            $("#btn_comentar").click(function(){
+                // Crear los elementos usando jQuery
+                let $li = $("<li>").addClass("item_comentario");
+                let $img = $("<img>").attr("src", "img/perfilesImagenes/sinPerfil.jpg");
+                let $div_coment = $("<div>").addClass("comentario");
+                let $h4 = $("<h4>").text("Anonimo");
+                let $div_star = $("<div>").addClass("stars-rating");
+                let $p = $("<p>").text($("#texto_comentario").val());
+
+                // Generar las estrellas basadas en el puntaje
+                for (let i = 1; i <= 5; i++) {
+                    if (i <= puntaje) {
+                        $div_star.append("★");
+                    } else {
+                        $div_star.append("☆");
+                    }
+                }
+
+                // Construir la estructura
+                $div_coment.append($h4, $div_star, $p);
+                $li.append($img, $div_coment);
+
+                // Agregar el nuevo comentario a la lista
+                $("#lista_comentario").append($li);
+            });
+        });
+    </script>
 </head>
 <body>
-
     <header class="ps-5 pe-5">
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="d-flex align-items-center col-2"> 
-                <a class="logo navbar-brand me-5 h1" href="index.html">Mathion</a>
+                <h1 class="logo navbar-brand me-5">Mathion</h1>
             </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
                 <span class="navbar-toggler-icon"></span>
@@ -27,10 +68,10 @@
                 <div class="d-flex justify-content-between w-100">
                     <ul class="navbar-nav gap-2 col-lg-3">
                         <li class="nav-item">
-                            <a class="nav-link" href="hombres.html">Hombres</a>
+                            <a class="nav-link" href="hombres.html">Hombres ♂</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="mujeres.html">Mujeres</a>
+                            <a class="nav-link" href="mujeres.html">Mujeres ♀</a>
                         </li>
                     </ul>
                     <div class="w-100 row justify-content-center align-items-center">
@@ -42,9 +83,18 @@
                     </div>
                     <div class="iconos col-2 d-flex justify-content-end">
                         <ul class="navbar-nav gap-4">
+                            <li class="nav-item dropdown  d-none d-lg-flex">
+                                <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i id="icon_user" class="fa fa-user text-dark fa-xl"></i>
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="login.html">Iniciar Sesion</a></li>
+                                    <li><a class="dropdown-item" href="registro.html">Registrarse</a></li>
+                                </ul>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link position-relative text-decoration-none" href="" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    <i class="fa fa-cart-arrow-down text-dark fa-xl"></i>
+                                    <i id="icon_cart" class="fa fa-cart-arrow-down text-dark fa-xl"></i>
                                 </a>
                             </li>
                         </ul>                 
@@ -65,7 +115,7 @@
                                 <p>Carrito</p>
                             </div>
                             <div class="col-auto">
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <button id="icon_close" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                         </div>
                         <div class="row justify-content-center mt-5">
@@ -89,7 +139,7 @@
         </div>
     </div>
 
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="offcanvasScrollingLabel"></h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -129,43 +179,46 @@
         </div>
     </div>
 
-    <section class="d-flex justify-content-center align-items-center vh-100" style="background-image: url('img/fondo.jpeg'); background-size: cover; background-position: center;">
-        <div class="container custom-container">
-            <div class="row shadow-lg me-5 ms-5">
-                <div class="col-md-6 p-5 fondo text-center d-flex flex-column justify-content-center d-none d-md-flex">
-                    <h3 class="mb-3">Hola, amigo!</h3>
-                    <p class="mb-4">Si ya tienes una cuenta creada, <br> Inicia sesion</p>
-                    <a href="login.html">
-                        <button class="btn btn-outline-light">Iniciar Sesion</button>
-                    </a>
-                    
+    <section class="products m-5">
+        <div class="pagina_producto">
+            <div class="contenedor_producto">
+                <div>
+                    <img id="producto_img" src="https://shop-cons.com/cdn/shop/files/IMG-2631_400x.jpg?v=1734447515">
                 </div>
-    
-                <div class="col-md-6 p-5 bg-white">
-                    <h3 class="mb-4 font-weight-bold">Registrarte</h3>
-                    <form>
-                        <div class="mb-3">
-                            <input type="text" class="form-control" placeholder="Nombre y Apellido" required>
-                        </div>
-                        <div class="mb-3">
-                            <input type="email" class="form-control" placeholder="Correo electrónico" required>
-                        </div>
-                        <div class="mb-4">
-                            <input type="password" class="form-control" placeholder="Contraseña" required>
-                        </div>
-                        <div class="form-check text-center mb-4">
-                            <label class="form-check-label">
-                                <input type="checkbox" name="terminos" id="terminos" class="form-check-input"> 
-                                Acepto Terminos y Condiciones
-                            </label>
-                        </div>
-                       
-                        <button type="submit" class="btn btn-dark w-100">Enviar</button>
-                    </form>
+                <div class="detalle_producto mt-4">
+                    <h1 id="nombre">BUCKET VERDE ♂</h1>
+                    <p id="precio" class="precio_producto">$15.99</p>
+                    <div class="cantidad">
+                        <a class="btn btn-primary">Agregar al Carrito</a>
+                    </div>
+                    <hr class="mb-3" style="margin: 0;">
+                    <p>Categoría: <a id="link_categoria" href="hombres.html">Hombres</a></p>
                 </div>
-                
-               
             </div>
+    
+            <div class="barra_derecha">
+                <div class="producto_similar">
+                    <h3>Productos Similares</h3>
+                    <p>No hay productos similares.</p>
+                </div>
+            </div>
+        </div>
+    
+        <div class="seccion_comentario">
+            <h3>Comentarios</h3>
+            <form class="form_comentario">
+                <textarea id="texto_comentario" placeholder="Escribe tu comentario aquí..." required></textarea>
+                <div class="puntaje">
+                    <span>Calificación:</span>
+                    <input type="radio" name="estrella" id="star1" value="1" class="estrella"><label for="star1"><i class="fas fa-star"></i></label>
+                    <input type="radio" name="estrella" id="star2" value="2" class="estrella"><label for="star2"><i class="fas fa-star"></i></label>
+                    <input type="radio" name="estrella" id="star3" value="3" class="estrella"><label for="star3"><i class="fas fa-star"></i></label>
+                    <input type="radio" name="estrella" id="star4" value="4" class="estrella"><label for="star4"><i class="fas fa-star"></i></label>
+                    <input type="radio" name="estrella" id="star5" value="5" class="estrella"><label for="star5"><i class="fas fa-star"></i></label>
+                </div>
+                <button id="btn_comentar">Enviar Comentario</button>
+            </form>
+            <ul id="lista_comentario"></ul>
         </div>
     </section>
 

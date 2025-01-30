@@ -441,16 +441,11 @@
 .form_comentario button {
     width: 150px;
     padding: 10px;
-    background-color: #e74c3c;
     color: white;
     border: none;
     cursor: pointer;
     transition: background-color 0.3s;
     align-self: flex-end;
-}
-
-.form_comentario button:hover {
-    background-color: #c0392b;
 }
 
 #lista_comentario{
@@ -485,4 +480,27 @@
 .item_comentario > div p {
     font-size: 14px;
     color: #555;
+}
+
+.dropdown-menu{
+    z-index: 2000;
+}
+
+#num_producto{
+    width: 14%;
+    border: 0;
+}
+
+#precio{
+    color: #336;
+}
+
+.carrito-producto{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.carrito-producto img{
+    width: 100%;
 }

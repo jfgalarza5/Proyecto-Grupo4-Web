@@ -4,17 +4,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conocenos</title>
+    <title>Proyecto</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
+    <script src="js/JQueryV3.7.1.js"></script>
+    <script src="js/jquery.easing.1.3.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Efecto al pasar el mouse sobre las tarjetas
+            $(".card").hover(
+                function () {
+                    $(this).css({
+                        "transform": "scale(1.05)",
+                        "border": "2px solid #ffc107",
+                        "transition": "0.3s"
+                    });
+                },
+                function () {
+                    $(this).css({
+                        "transform": "scale(1)",
+                        "border": "none"
+                    });
+                }
+            );
+
+            // Evento de clic en la tarjeta para abrir el modal
+            $(".card").click(function () {
+                let nombre = $(this).find("h6").text();
+                let rol = $(this).find("h5").text();
+                let datos = $(this).find("p").html();
+                let imagen = $(this).find("img").attr("src");
+
+                // Llenamos el modal con los datos de la tarjeta seleccionada
+                $("#modalNombre").text(nombre);
+                $("#modalRol").text(rol);
+                $("#modalDatos").html(datos);
+                $("#modalImagen").attr("src", imagen);
+
+                // Mostrar el modal
+                $("#infoModal").modal("show");
+            });
+
+            // Animación al abrir el modal
+            $("#infoModal").on('show.bs.modal', function () {
+                $(this).find(".modal-content").css({
+                    "transform": "scale(0.8)",
+                    "opacity": "0"
+                }).animate({
+                    "transform": "scale(1)",
+                    "opacity": "1"
+                }, 300);
+            });
+
+            // Animación al cerrar el modal
+            $("#infoModal").on('hide.bs.modal', function () {
+                $(this).find(".modal-content").animate({
+                    "transform": "scale(0.8)",
+                    "opacity": "0"
+                }, 300);
+            });
+
+            $("#icon_user").hover(function(){
+                $(this).stop().animate({ top: "-3px" }, 200, "easeOutBounce");
+            }, function(){
+                $(this).stop().animate({ top: "0px" }, 200);
+            });
+
+            $("#icon_cart").click(function(){
+                $(this).parent().css('overflow', 'hidden');
+                $(this).stop().animate(
+                    {
+                        left: "50px"
+                    },
+                    1000,
+                    "easeOutBounce",
+                    function(){
+                        $(this).css("left", "-50px");
+                    }
+                )
+            });
+
+            $("#icon_close").click(function(){
+                $("#icon_cart").stop().animate(
+                    {
+                        left: "0"
+                    },
+                    1000,
+                    "easeOutBounce"
+                )
+            });
+        });
+    </script>
+
 </head>
 
-<body class="bg-light">
-    <header class="ps-5 pe-5 bg-white">
+<body>
+    <header class="ps-5 pe-5">
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="d-flex align-items-center col-2"> 
-                <a class="logo navbar-brand me-5" href="index.html">Mathion</a>
+                <h1 class="logo navbar-brand me-5">Mathion</h1>
             </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
                 <span class="navbar-toggler-icon"></span>
@@ -40,7 +130,7 @@
                         <ul class="navbar-nav gap-4">
                             <li class="nav-item dropdown  d-none d-lg-flex">
                                 <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="fa fa-user text-dark fa-xl"></i>
+                                    <i id="icon_user" class="fa fa-user text-dark fa-xl"></i>
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li><a class="dropdown-item" href="login.html">Iniciar Sesion</a></li>
@@ -49,7 +139,7 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link position-relative text-decoration-none" href="" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    <i class="fa fa-cart-arrow-down text-dark fa-xl"></i>
+                                    <i id="icon_cart" class="fa fa-cart-arrow-down text-dark fa-xl"></i>
                                 </a>
                             </li>
                         </ul>                 
@@ -70,7 +160,7 @@
                                 <p>Carrito</p>
                             </div>
                             <div class="col-auto">
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <button id="icon_close" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                         </div>
                         <div class="row justify-content-center mt-5">
@@ -94,7 +184,8 @@
         </div>
     </div>
 
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasScrolling"
+        aria-labelledby="offcanvasScrollingLabel">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="offcanvasScrollingLabel"></h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -126,7 +217,8 @@
                     <a class="nav-link" href="registro.html">Registrarse</a>
                     <i class="fas fa-user-plus"></i>
                 </li>
-                <li class="nav-item d-flex justify-content-between align-items-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <li class="nav-item d-flex justify-content-between align-items-center" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">
                     <p>Carrito</p>
                     <i class="fas fa-cart-shopping"></i>
                 </li>
@@ -134,13 +226,14 @@
         </div>
     </div>
 
-    <section class="container py-5 bg-light">
-        <div class="row justify-content-center align-items-center mt-5 mb-5">
-            <div class="col-9 col-sm-6 col-lg-3 mb-4">
+
+    <div class="container py-5 my-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-3 mb-4">
                 <div class="card tarjeta">
-                    <div class="card-header tarjeta-encabezado"></div>
-                    <img src="img/perfilesImagenes/perfilJenny.jpg" alt="Foto de perfil" class="perfil">
-                    <div class="card-body text-center">
+                    <div class="card-header"></div>
+                    <img src="img/perfilesImagenes/perfilJenny.jpg" alt="Foto de perfil" class="profile-img">
+                    <div class="card-body">
                         <h5 class="text-warning">Desarrollador</h5>
                         <h6 class="fw-bold">Jennifer Torres</h6>
                         <p>Femenino<br>29-07-2001<br>@lajenny01</p>
@@ -152,11 +245,12 @@
                     </div>
                 </div>
             </div>
-            <div class="col-9 col-sm-6 col-lg-3 mb-4">
+
+            <div class="col-md-6 col-lg-3 mb-4">
                 <div class="card tarjeta">
-                    <div class="card-header tarjeta-encabezado"></div>
-                    <img src="img/perfilesImagenes/perfilMathias.jpg" alt="Foto de perfil" class="perfil">
-                    <div class="card-body text-center">
+                    <div class="card-header"></div>
+                    <img src="img/perfilesImagenes/perfilMathias.jpg" alt="Foto de perfil" class="profile-img">
+                    <div class="card-body">
                         <h5 class="text-warning">Desarrollador</h5>
                         <h6 class="fw-bold">Mathias Gualpa</h6>
                         <p>Masculino<br>27-10-2003<br>@mathias</p>
@@ -169,11 +263,11 @@
                 </div>
             </div>
 
-            <div class="col-9 col-sm-6 col-lg-3 mb-4">
+            <div class="col-md-6 col-lg-3 mb-4">
                 <div class="card tarjeta">
-                    <div class="card-header tarjeta-encabezado"></div>
-                    <img src="img/perfilesImagenes/perfilJhon.jpg" alt="Foto de perfil" class="perfil">
-                    <div class="card-body text-center">
+                    <div class="card-header"></div>
+                    <img src="img/perfilesImagenes/perfilJhon.jpg" alt="Foto de perfil" class="profile-img">
+                    <div class="card-body">
                         <h5 class="text-warning">Desarrollador</h5>
                         <h6 class="fw-bold">John Galarza</h6>
                         <p>Masculino<br>24-Mayo-2004<br>@john</p>
@@ -186,11 +280,11 @@
                 </div>
             </div>
 
-            <div class="col-9 col-sm-6 col-lg-3 mb-4">
+            <div class="col-md-6 col-lg-3 mb-4">
                 <div class="card tarjeta">
-                    <div class="card-header tarjeta-encabezado"></div>
-                    <img src="img/perfilesImagenes/perfilDarwin.jpg" alt="Foto de perfil" class="perfil">
-                    <div class="card-body text-center">
+                    <div class="card-header"></div>
+                    <img src="img/perfilesImagenes/perfilDarwin.jpg" alt="Foto de perfil" class="profile-img">
+                    <div class="card-body">
                         <h5 class="text-warning">Desarrollador</h5>
                         <h6 class="fw-bold">Darwin Toapanta</h6>
                         <p>Masculino<br>10-12-2000<br>@darwin</p>
@@ -202,8 +296,25 @@
                     </div>
                 </div>
             </div>
+            <!-- Modal para mostrar información de la tarjeta -->
+            <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content modal-contenido p-4">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalNombre"></h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-center">
+                            <img id="modalImagen" src="" class="img-fluid mb-3" width="150">
+                            <h6 id="modalRol" class="text-warning"></h6>
+                            <p id="modalDatos"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
-    </section>
+    </div>
 
     <footer class="bg-dark">
         <div class="container">
@@ -217,11 +328,11 @@
                         </li>
                         <li>
                             <i class="fa fa-phone fa-fw"></i>
-                            <a class="text-decoration-none" href="">0980098210</a>
+                            <a class="text-decoration-none text-white" href="">0980098210</a>
                         </li>
                         <li>
                             <i class="fa fa-envelope fa-fw"></i>
-                            <a class="text-decoration-none" href="">jfgalarza5@espe.edu.ec</a>
+                            <a class="text-decoration-none text-white" href="">jfgalarza5@espe.edu.ec</a>
                         </li>
                     </ul>
                 </div>
@@ -229,26 +340,26 @@
                 <div class="col-md-4 pt-5">
                     <h4 class="text-light border-bottom pb-3 border-light">Explora</h4>
                     <ul class="list-unstyled text-light footer-link-list">
-                        <li><a class="text-decoration-none" href="index.html">Inicio</a></li>
-                        <li><a class="text-decoration-none" href="Conocenos.html">Conocenos</a></li>
-                        <li><a class="text-decoration-none" href="hombres.html">Hombres</a></li>
-                        <li><a class="text-decoration-none" href="mujeres.html">Mujeres</a></li>
+                        <li><a class="text-decoration-none text-white" href="index.html">Inicio</a></li>
+                        <li><a class="text-decoration-none text-white" href="Conocenos.html">Conocenos</a></li>
+                        <li><a class="text-decoration-none text-white" href="hombres.html">Hombres</a></li>
+                        <li><a class="text-decoration-none text-white" href="mujeres.html">Mujeres</a></li>
                     </ul>
                 </div>
 
                 <div class="col-md-4 pt-5">
                     <h4 class="text-light border-bottom pb-3 border-light">Redes Sociales</h4>
                     <ul class="list-inline text-left footer-icons">
-                        <li class="list-inline-item border border-light rounded-circle text-center">
+                        <li class="list-inline-item rounded-circle text-center">
                             <a class="text-light text-decoration-none" target="_blank" href="http://facebook.com/"><i class="fab fa-facebook-f fa-lg fa-fw"></i></a>
                         </li>
-                        <li class="list-inline-item border border-light rounded-circle text-center">
+                        <li class="list-inline-item rounded-circle text-center">
                             <a class="text-light text-decoration-none" target="_blank" href="https://www.instagram.com/"><i class="fab fa-instagram fa-lg fa-fw"></i></a>
                         </li>
-                        <li class="list-inline-item border border-light rounded-circle text-center">
+                        <li class="list-inline-item rounded-circle text-center">
                             <a class="text-light text-decoration-none" target="_blank" href="https://twitter.com/"><i class="fab fa-twitter fa-lg fa-fw"></i></a>
                         </li>
-                        <li class="list-inline-item border border-light rounded-circle text-center">
+                        <li class="list-inline-item rounded-circle text-center">
                             <a class="text-light text-decoration-none" target="_blank" href="https://www.linkedin.com/"><i class="fab fa-linkedin fa-lg fa-fw"></i></a>
                         </li>
                     </ul>
@@ -269,6 +380,7 @@
                 </div>
             </div>
         </div>
+
     </footer>
 
     <script src="https://kit.fontawesome.com/5f232b4c5b.js" crossorigin="anonymous"></script>

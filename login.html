@@ -68,7 +68,7 @@
                     <h3 class="mb-4 font-weight-bold">Iniciar Sesión</h3>
                     <form id="loginForm">
                         <div class="mb-3">
-                            <input type="email" class="form-control" placeholder="Correo electrónico" id="email">
+                            <input type="correo" class="form-control" placeholder="Correo electrónico" id="correo">
                         </div>
                         <div class="mb-4">
                             <input type="password" class="form-control" placeholder="Contraseña" id="password">
@@ -163,31 +163,32 @@
     <script>
         $(document).ready(function() {
             function mostrarError(elemento, mensaje) {
-                elemento
+                if (elemento.siblings('.errormessage').length === 0) {
+                    elemento
                     .addClass('errorinput')
-                    .after(`<div class="text-danger errormessage" style="display: none;">${mensaje}</div>`);
-                $('.errormessage').fadeIn(500, 'easeOutExpo');
+                    .after(`<div class="text-danger errormessage">${mensaje}</div>`);
+                }
             }
-    
+
             function limpiarErrores() {
-                $('.errormessage').fadeOut(300, 'easeInExpo', function() { $(this).remove(); });
-                $('.errorinput').removeClass('errorinput');
+                $('.errormessage').remove(); 
+                $('.errorinput').removeClass('errorinput'); 
             }
-    
+
             $("#loginForm").submit(function(event) {
-                limpiarErrores();
-                var email = $("#email").val();
-                var password = $("#password").val();
+                limpiarErrores(); 
+                var correo = $("#correo").val().trim(); 
+                var password = $("#password").val().trim();
                 var valid = true;
-    
-                if (email == "") {
-                    mostrarError($("#email"), "El correo electrónico es obligatorio.");
+
+                if (correo == "") {
+                    mostrarError($("#correo"), "El correo electrónico es obligatorio.");
                     valid = false;
-                } else if (!email.includes('@')) {
-                    mostrarError($("#email"), "El correo electrónico debe incluir un '@'.");
+                } else if (!correo.includes('@')) {
+                    mostrarError($("#correo"), "El correo electrónico debe incluir un '@'.");
                     valid = false;
                 }
-    
+
                 if (password == "") {
                     mostrarError($("#password"), "La contraseña es obligatoria.");
                     valid = false;
@@ -195,16 +196,14 @@
                     mostrarError($("#password"), "La contraseña debe tener entre 5 y 12 caracteres.");
                     valid = false;
                 }
-    
+
                 if (!valid) {
                     event.preventDefault();
                 }
             });
-    
-            // Animación de entrada
+
             $(".col-10, .col-6").hide().fadeIn(1000, 'easeOutBounce');
-    
-            // Cambiar la opacidad cuando el mouse pasa por un contenedor
+
             $(".col-10").hover(
                 function() {
                     $(this).siblings(".col-6").css({ "opacity": "0.5", "transition": "0.3s" });
@@ -213,7 +212,7 @@
                     $(this).siblings(".col-6").css({ "opacity": "1", "transition": "0.3s" });
                 }
             );
-    
+
             $(".col-6").hover(
                 function() {
                     $(this).siblings(".col-10").css({ "opacity": "0.5", "transition": "0.3s" });

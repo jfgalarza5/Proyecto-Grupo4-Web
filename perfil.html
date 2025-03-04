@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('img/fondo.jpeg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .errorinput {
+            border: 1px solid #ff8894;
+            background-color: #fff8f8;
+        }
+        .errormessage {
+            color: #ff8894;
+            font-size: 0.9em;
+        }
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="d-flex justify-content-center align-items-center w-100 h-100">
+        <div class="d-flex justify-content-between align-items-center bg-light rounded-3 shadow p-4" style="width: 80%; max-width: 1000px; background-color: #f8f9fa;">
+            <!-- Contenedor del logo -->
+            <div class="form-container position-relative p-4 d-none d-md-flex flex-column align-items-center justify-content-center" style="width: 450px; background-color: #f8f9fa; border-right: 2px solid #dcdedf;">
+                <div class="rounded-circle bg-secondary d-flex align-items-center justify-content-center text-white" style="width: 180px; height: 180px; font-size: 3em;">
+                    M
+                </div>
+                <h4 class="mt-3 text-center">Mathion</h4>
+                <p class="text-muted text-center">megualpa@gmail.com</p>
+                <p class="text-muted text-center">Vendedor</p>
+            </div>
+            <!-- Contenedor del formulario -->
+            <div class="form-container p-4 bg-white shadow rounded-3" style="width: 450px;">
+                <h5 class="text-primary text-center mb-4">Editar Perfil</h5>
+                <form id="profileForm">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Nombre de Usuario:</label>
+                        <input type="text" class="form-control" id="username" name="username">
+                        <div class="invalid-feedback" id="username-error"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="correo" class="form-label">Correo Electrónico:</label>
+                        <input type="correo" class="form-control" id="correo" name="correo">
+                        <div class="invalid-feedback" id="correo-error"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Contraseña:</label>
+                        <input type="password" class="form-control" id="password" name="password">
+                        <div class="invalid-feedback" id="password-error"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="profilePic" class="form-label">Subir Foto:</label>
+                        <input class="form-control" type="file" id="profilePic" name="profilePic">
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Guardar Cambios</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/JQueryV3.7.1.js"></script>
+    <script src="js/jquery.easing.1.3.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            function mostrarError(elemento, mensaje) {
+                elemento.siblings('.errormessage').remove();
+                elemento
+                    .addClass('errorinput')
+                    .after(`<div class="text-danger errormessage" style="display: none;">${mensaje}</div>`);
+                $('.errormessage').fadeIn(500, 'easeOutExpo');
+            }
+    
+            function limpiarErrores() {
+                $('.errormessage').fadeOut(300, 'easeInExpo', function() { $(this).remove(); });
+                $('.errorinput').removeClass('errorinput');
+            }
+    
+            $("#profileForm").submit(function(event) {
+                event.preventDefault();
+                limpiarErrores();
+    
+                var username = $("#username").val().trim();
+                var correo = $("#correo").val().trim();
+                var password = $("#password").val().trim();
+                var profilePic = $("#profilePic").val();
+                var valid = true;
+    
+                if (username === "") {
+                    mostrarError($("#username"), "El nombre de usuario es obligatorio.");
+                    valid = false;
+                } else if (username.length < 3) {
+                    mostrarError($("#username"), "El nombre de usuario debe tener al menos 3 caracteres.");
+                    valid = false;
+                }
+    
+                if (correo === "") {
+                    mostrarError($("#correo"), "El correo electrónico es obligatorio.");
+                    valid = false;
+                } else if (!correo.includes('@')) {
+                    mostrarError($("#correo"), "El correo electrónico debe incluir un '@'.");
+                    valid = false;
+                }
+    
+                if (password === "") {
+                    mostrarError($("#password"), "La contraseña es obligatoria.");
+                    valid = false;
+                } else if (password.length < 5 || password.length > 12) {
+                    mostrarError($("#password"), "La contraseña debe tener entre 5 y 12 caracteres.");
+                    valid = false;
+                }
+    
+                if (valid) {
+                    $("#username").val('');
+                    $("#correo").val('');
+                    $("#password").val('');
+                    $("#profilePic").val('');
+    
+                    alert("Formulario válido. Campos limpiados.");
+                }
+            });
+    
+            $(".card").hide().fadeIn(1000, 'easeOutBounce');
+        });
+    </script>    
+</body>
+</html>

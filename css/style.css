@@ -299,8 +299,16 @@
 #icon_user, #icon_cart{
     position: relative;
 }
+.card-body {
+    text-align: center;
+}
 
-/* Producto */
+.content-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* -------------Producto */
 
 .pagina_producto {
     display: flex;

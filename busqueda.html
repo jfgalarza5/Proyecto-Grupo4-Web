@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/5f232b4c5b.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+</head>
+
+<body>
+    <!-- Filtro de búsqueda dentro de una tarjeta -->
+    <div class="container my-4">
+        <div class="content-wrapper">
+            <!-- Filtro de búsqueda en una tarjeta -->
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h4>Filtrar búsqueda</h4>
+                        <form>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="todas" name="categoria" checked>
+                                <label class="form-check-label" for="todas">Todas</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="hombre" name="categoria">
+                                <label class="form-check-label" for="hombre">Hombre</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="mujer" name="categoria">
+                                <label class="form-check-label" for="mujer">Mujer</label>
+                            </div>
+                            <div class="mb-3">
+                                <label for="orderBy" class="form-label">Ordenar por:</label>
+                                <select class="form-select" id="orderBy">
+                                    <option value="menorPrecio">Menor precio</option>
+                                    <option value="mayorPrecio">Mayor precio</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Filtrar</button>
+                        </form>
+                    </div>
+                </div>
+
+            <!-- Productos a la derecha -->
+            <div class="container py-5">
+                
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3">
+                    <!-- Ejemplo de producto -->
+                    <div class="col mb-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body text-center">
+                                <img src="https://shop-cons.com/cdn/shop/files/0R0A2528_400x.jpg?v=1734185630" style="width: 90%; height: 400px;" class="card-img-top" alt="BUCKET NEGRO">
+                                <h5 class="card-title text-dark mt-3">$40.99</h5>
+                                <p class="card-text text-muted">CHOMPA NEGRA ♀</p>
+                                <a href="producto.html" class="btn btn-custom">Detalles</a>
+                                <div class="heart-container d-flex justify-content-end">
+                                    <i class="fa fa-heart" onclick="toggleHeart(this)"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col mb-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body text-center">
+                                <img src="https://shop-cons.com/cdn/shop/files/0R0A1407_400x.jpg?v=1734185927"  style=" width: 90%;  height: 400px;" class="card-img-top11" alt="Reloj deportivo">
+                                <h5 class="card-title text-dark mt-3">$20.00</h5>
+                                <p class="card-text text-muted">GORRO VERDE ♀</p>
+                                <a href="#" class="btn btn-custom">Detalles</a>
+                                <!-- Corazón alineado a la derecha -->
+                    <div class="heart-container d-flex justify-content-end">
+                        <i class="fa fa-heart" onclick="toggleHeart(this)"></i>
+                    </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="col mb-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body text-center">
+                                <img src="https://shop-cons.com/cdn/shop/files/0R0A0917_300x.jpg?v=1726253499"  style=" width: 90%;  height: 400px;" class="card-img-top12" alt="Chaqueta negra">
+                                <h5 class="card-title text-dark mt-3">$14.99</h5>
+                                <p class="card-text text-muted">SHORT BOXER ROSA ♀</p>
+                                <a href="#" class="btn btn-custom">Detalles</a>
+                                <div class="heart-container d-flex justify-content-end">
+                                    <i class="fa fa-heart" onclick="toggleHeart(this)"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="col mb-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body text-center">
+                                <img src="https://shop-cons.com/cdn/shop/files/0R0A1184_400x.jpg?v=1726254365"  style=" width: 90%;  height: 400px;"  class="card-img-top13" alt="Camiseta verde">
+                                <h5 class="card-title text-dark mt-3">$20.99</h5>
+                                <p class="card-text text-muted">CAMISA BLANCA ♀</p>
+                                <a href="#" class="btn btn-custom">Detalles</a>
+                                <div class="heart-container d-flex justify-content-end">
+                                    <i class="fa fa-heart" onclick="toggleHeart(this)"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="col mb-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body text-center">
+                                <img src="https://shop-cons.com/cdn/shop/files/0R0A0471_400x.jpg?v=1726254164"  style=" width: 90%;  height: 400px;" class="card-img-top14" alt="Zapatos casuales">
+                                <h5 class="card-title text-dark mt-3">$15.99</h5>
+                                <p class="card-text text-muted">SHORT BOXER VERDE ♀</p>
+                                <a href="#" class="btn btn-custom">Detalles</a>
+                                <div class="heart-container d-flex justify-content-end">
+                                    <i class="fa fa-heart" onclick="toggleHeart(this)"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="col mb-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body text-center">
+                                <img src="https://shop-cons.com/cdn/shop/files/0R0A1668_300x.jpg?v=1700656514"   style=" width: 90%;  height: 400px;" class="card-img-top15" alt="Pantalones cargo">
+                                <h5 class="card-title text-dark mt-3">$16.99</h5>
+                                <p class="card-text text-muted">MINIFALDA BEIGE ♀</p>
+                                <a href="#" class="btn btn-custom">Detalles</a>
+                                <div class="heart-container d-flex justify-content-end">
+                                    <i class="fa fa-heart" onclick="toggleHeart(this)"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="col mb-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body text-center">
+                                <img src="https://shop-cons.com/cdn/shop/files/0R0A0227_3834f43f-bce2-4874-92eb-0829982126d4_300x.jpg?v=1700659550"  style=" width: 90%;  height: 400px;" class="card-img-top16" alt="Mochila">
+                                <h5 class="card-title text-dark mt-3">$44.99</h5>
+                                <p class="card-text text-muted">CHOMPA CREMA ♀</p>
+                                <a href="#" class="btn btn-custom">Detalles</a>
+                                <div class="heart-container d-flex justify-content-end">
+                                    <i class="fa fa-heart" onclick="toggleHeart(this)"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="col mb-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body text-center">
+                                <img src="https://shop-cons.com/cdn/shop/files/0R0A1805_400x.jpg?v=1700656621"  style=" width: 90%;  height: 400px;" class="card-img-top17" alt="Gafas de sol">
+                                <h5 class="card-title text-dark mt-3">$16.99</h5>
+                                <p class="card-text text-muted">MINIFALDA NEGRA ♀</p>
+                                <a href="#" class="btn btn-custom">Detalles</a>
+                                <div class="heart-container d-flex justify-content-end">
+                                    <i class="fa fa-heart" onclick="toggleHeart(this)"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="col mb-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body text-center">
+                                <img src="https://shop-cons.com/cdn/shop/files/0R0A1005_300x.jpg?v=1726258579"  style=" width: 90%;  height: 400px;" class="card-img-top18" alt="Perfume masculino">
+                                <h5 class="card-title text-dark mt-3">$20.00</h5>
+                                <p class="card-text text-muted">GORRA BLANCA ♀</p>
+                                <a href="#" class="btn btn-custom">Detalles</a>
+                                <div class="heart-container d-flex justify-content-end">
+                                    <i class="fa fa-heart" onclick="toggleHeart(this)"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                </div>
+        
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://kit.fontawesome.com/5f232b4c5b.js" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+        
+        $(document).ready(function(){
+    
+            //  Efecto hover en tarjetas
+            $(".card").hover(function(){
+                $(this).css("transform", "scale(1.05)");
+            }, function(){
+                $(this).css("transform", "scale(1)");
+            });
+    
+            // Efecto de rebote en el icono del usuario (Corregido)
+            $("#icon_user").hover(function(){
+                $(this).stop().animate({ top: "-5px" }, 500, "easeOutBounce");
+            }, function(){
+                $(this).stop().animate({ top: "0px" }, 500, "easeOutBounce");
+            });
+    
+            // Efecto de rebote en el icono del carrito (Corregido)
+            $("#icon_cart").click(function(){
+                $(this).stop().animate(
+                    { left: "+=20px" },
+                    500,
+                    "easeOutBounce",
+                    function(){
+                        $(this).stop().animate({ left: "-=20px" }, 500, "easeOutBounce");
+                    }
+                );
+            });
+            //efecto de movimiento en el corazon
+            $(".fa-heart").click(function(){
+                let isLoggedIn = false;
+                if (!isLoggedIn) {
+                    $(this).css("position", "relative")
+                        .animate({ top: "+=20px" }, 300)
+                        .animate({ top: "-=20px" }, 300);
+                    showNotification();
+                    return;
+                }
+                $(this).toggleClass("liked");
+            });
+
+            //  Notificación para sesión no iniciada
+            function showNotification() {
+                const notification = $("#notification");
+                notification.addClass("show");
+
+                setTimeout(() => {
+                    notification.removeClass("show");
+                }, 4000); 
+            }
+
+            //  Botón para volver arriba con animación suave
+            window.onscroll = function () {
+                let btn = $("#btnScrollTop");
+                if ($(document).scrollTop() > 300) {
+                    btn.fadeIn();
+                } else {
+                    btn.fadeOut();
+                }
+            };
+            // desplazar suavemente la página
+            function scrollToTop() {
+                $("html, body").animate({ scrollTop: 0 }, 800, "easeInOutExpo");
+            }
+            //mostrar una notificación
+            function toggleHeart(heart, imgSrc) {
+                let isLoggedIn = false;
+                if (!isLoggedIn) {
+                    showNotification();
+                    return;
+                }
+                heart.classList.toggle("liked");
+            }
+            window.onscroll = function () {
+            let btn = document.getElementById("btnScrollTop");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                btn.style.display = "block";
+            } else {
+                btn.style.display = "none";
+            }
+        };
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+        });
+        window.onscroll = function () {
+            let btn = document.getElementById("btnScrollTop");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                btn.style.display = "block";
+            } else {
+                btn.style.display = "none";
+            }
+        };
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+
+        
+    </script>
+</body>
+</html>

@@ -1,17 +1,17 @@
-eso es solo el diseño mira: <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>proyecto</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Publicidad</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/JQueryV3.7.1.js"></script>
+    <script src="https://kit.fontawesome.com/5f232b4c5b.js" crossorigin="anonymous"></script>
     <style>
         body {
             background-color: #f8f9fa;
-        }
-        h2{
-            color: #2d5784;
         }
         .container-box {
             background: white;
@@ -20,7 +20,7 @@ eso es solo el diseño mira: <!DOCTYPE html>
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
             max-width: 500px;
             margin: auto;
-            margin-top: 50px;
+            margin-block: 50px;
         }
 
         .btn-custom {
@@ -33,27 +33,269 @@ eso es solo el diseño mira: <!DOCTYPE html>
             color: white;
         }
     </style>
+    <script>
+        $(function(){
+            if(window.localStorage.getItem("credencial") && JSON.parse(window.localStorage.getItem("credencial")).tipo==="vendedor"){
+                usuario=JSON.parse(window.localStorage.getItem("credencial"));
+            }else{
+                $("#contenedor").html("<h4 class='text-center p-5' style='color: #999'>Inicia sesion con una cuenta de vendedor para gestionar la publicidad</h4>");
+            }
+
+            $("#btn_subir").click(function(){
+                subirPublicidad();
+            });
+
+            async function subirPublicidad() {
+                let format = new FormData();
+                let usuario = JSON.parse(window.localStorage.getItem("credencial"));
+                let foto = document.getElementById("banner");
+                format.append('correo',usuario.correo);
+                format.append('foto',foto.files[0]);
+                await $.ajax({
+                    url: "php/publicidad.php",
+                    method: "POST",
+                    data: format,
+                    processData: false,
+                    contentType: false,
+                    success: function (respuesta) {
+                    }, 
+                    error: function (xhr, status, error) { 
+                        console.error("Error en la solicitud AJAX:", status, error); 
+                    }
+                });
+                window.location.reload(true);
+            }
+
+            if(window.localStorage.getItem("credencial")){
+                logueado = true;
+                credencial = JSON.parse(window.localStorage.getItem("credencial"));
+                $("#navbarDropdown").empty().html('<img src="'+credencial.foto+'" style="width: 35px; border-radius: 100%;">');
+                $("#perfil_opciones").empty();
+                if(credencial.tipo === "vendedor") $("#perfil_opciones").append(
+                    '<li><a class="dropdown-item" href="gestion.html">Gestionar</a></li>'
+                );
+                $("#perfil_opciones").append(
+                    '<li><a class="dropdown-item" href="perfil.html">Perfil</a></li>'+
+                    '<li><a class="dropdown-item" href="favoritos.html">Favoritos</a></li>'+
+                    '<li><a class="dropdown-item" href="" onclick="cerrarSesion()">Cerrar Sesion</a></li>'
+                );
+            }
+        });
+        function cerrarSesion(){
+            window.localStorage.setItem("credencial","");
+            window.location.reload(true);
+        } 
+    </script>
 </head>
 
 <body>
-    <div class="container">
-        <div class="container-box">
-            <h2 class="text-center">Muestra tu negocio!</h2>
-            <form>
-                <div class="mb-3">
-                    <label for="video" class="form-label">Presenta tus productos en un video:</label>
-                    <input type="file" class="form-control" id="video" accept="video/*">
+    <header class="ps-5 pe-5">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="d-flex align-items-center col-2">
+                <a class="logo navbar-brand me-5" href="index.html">Mathion</a>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling"
+                aria-controls="offcanvasScrolling">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse">
+                <div class="d-flex justify-content-between w-100">
+                    <ul class="navbar-nav gap-2 col-lg-3">
+                        <li class="nav-item">
+                            <a class="nav-link" href="hombres.html">Hombres ♂</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="mujeres.html">Mujeres ♀</a>
+                        </li>
+                    </ul>
+                    <div class="w-100 row justify-content-center align-items-center">
+                        <form class="form-inline d-flex col-8" role="search">
+                            <div class="form-group w-100">
+                                <input class="form-control me-2 border-top-0 border-end-0 border-start-0" type="search"
+                                    placeholder="Busqueda" aria-label="Busqueda">
+                            </div>
+                        </form>
+                    </div>
+                    <div  class="iconos col-2 d-flex justify-content-end">
+                        <ul class="navbar-nav gap-4">
+                            <li class="nav-item dropdown  d-none d-lg-flex">
+                                <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i id="icon_user" class="fa fa-user text-dark fa-xl"></i>
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="perfil_opciones">
+                                    <li><a class="dropdown-item" href="login.html">Iniciar Sesion</a></li>
+                                    <li><a class="dropdown-item" href="registro.html">Registrarse</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a style="overflow: hidden;" class="nav-link position-relative text-decoration-none" href=""
+                                    data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <i style="position: absolute; bottom: 50px; right: 0;" id="icon_prod" class="fab fa-shopify text-dark"></i>
+                                    <i id="icon_cart" class="fa fa-cart-arrow-down text-dark fa-xl"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="mb-3">
-                    <label for="logo" class="form-label">Muestra el logo de tu negocio:</label>
-                    <input type="file" class="form-control" id="logo" accept="image/*">
+            </div>
+        </nav>
+    </header>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content px-5">
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row justify-content-between mt-4">
+                            <div class="col-auto">
+                                <p>Carrito</p>
+                            </div>
+                            <div class="col-auto">
+                                <button id="icon_close" type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center mt-5" id="modal_container">
+                            <div class="col-auto">
+                                <span style="color: #ddd;">
+                                    <i class="fas fa-cart-shopping fa-2x"></i>
+                                </span>
+                            </div>
+                            <div class="col-12 text-center mt-4">
+                                <p class="text-muted">No tienes productos en tu carrito</p>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center mt-5 mb-5">
+                            <div class="col-auto">
+                                <a href="" class="btn btn-outline-dark">Continuar comprando</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasScrolling"
+        aria-labelledby="offcanvasScrollingLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasScrollingLabel"></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body row">
+            <div class="w-100 row justify-content-center align-items-center">
+                <form class="form-inline d-flex col-10" role="search">
+                    <div class="form-group w-100">
+                        <input class="form-control me-2" type="search" placeholder="Busqueda" aria-label="Busqueda">
+                    </div>
+                </form>
+            </div>
+            <ul class="navbar-nav gap-2 px-5">
+                <li class="nav-item d-flex justify-content-between align-items-center">
+                    <a class="nav-link" href="hombres.html">Hombres</a>
+                    <i class="fas fa-angle-right"></i>
+                </li>
+                <li class="nav-item d-flex justify-content-between align-items-center">
+                    <a class="nav-link" href="mujeres.html">Mujeres</a>
+                    <i class="fas fa-angle-right"></i>
+                </li>
+            </ul>
+            <ul class="navbar-nav gap-2 px-5 align-self-end mb-5">
+                <li class="nav-item d-flex justify-content-between align-items-center">
+                    <a class="nav-link" href="login.html">Iniciar Sesion</a>
+                    <i class="fas fa-user"></i>
+                </li>
+                <li class="nav-item d-flex justify-content-between align-items-center">
+                    <a class="nav-link" href="registro.html">Registrarse</a>
+                    <i class="fas fa-user-plus"></i>
+                </li>
+                <li class="nav-item d-flex justify-content-between align-items-center" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">
+                    <p>Carrito</p>
+                    <i class="fas fa-cart-shopping"></i>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="container mt-5 mb-5 p-5 " id="contenedor">
+        <div class="container-box">
+            <h2 class="text-center mb-5">Muestra tu negocio!</h2>
+            <form>
+                <div class="mb-4">
+                    <label for="logo" class="form-label">Banner publicitario para tu negocio:</label>
+                    <input type="file" class="form-control" id="banner" accept="image/*">
                 </div>
                 <div class="d-grid">
-                    <button type="submit" class="btn btn-custom">Subir Contenido</button>
+                    <button type="submit" class="btn btn-custom" id="btn_subir">Subir Contenido</button>
                 </div>
             </form>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <footer class="bg-dark">
+        <div class="container">
+            <div class="row justify-content-around">
+                <div class="col-md-4 pt-5">
+                    <h4 class="text-light border-bottom pb-3 border-light">Mathion Shop</h4>
+                    <ul class="list-unstyled text-light footer-link-list">
+                        <li>
+                            <i class="fas fa-map-marker-alt fa-fw"></i>
+                            Universidad de las Fuerzas Armadas ESPE
+                        </li>
+                        <li>
+                            <i class="fa fa-phone fa-fw"></i>
+                            <a class="text-decoration-none text-white" href="">0980098210</a>
+                        </li>
+                        <li>
+                            <i class="fa fa-envelope fa-fw"></i>
+                            <a class="text-decoration-none text-white" href="">jfgalarza5@espe.edu.ec</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4 pt-5">
+                    <h4 class="text-light border-bottom pb-3 border-light">Explora</h4>
+                    <ul class="list-unstyled text-light footer-link-list">
+                        <li><a class="text-decoration-none text-white" href="index.html">Inicio</a></li>
+                        <li><a class="text-decoration-none text-white" href="Conocenos.html">Conocenos</a></li>
+                        <li><a class="text-decoration-none text-white" href="hombres.html">Hombres</a></li>
+                        <li><a class="text-decoration-none text-white" href="mujeres.html">Mujeres</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4 pt-5">
+                    <h4 class="text-light border-bottom pb-3 border-light">Redes Sociales</h4>
+                    <ul class="list-inline text-left footer-icons">
+                        <li class="list-inline-item rounded-circle text-center">
+                            <a class="text-light text-decoration-none" target="_blank" href="http://facebook.com/"><i class="fab fa-facebook-f fa-lg fa-fw"></i></a>
+                        </li>
+                        <li class="list-inline-item rounded-circle text-center">
+                            <a class="text-light text-decoration-none" target="_blank" href="https://www.instagram.com/"><i class="fab fa-instagram fa-lg fa-fw"></i></a>
+                        </li>
+                        <li class="list-inline-item rounded-circle text-center">
+                            <a class="text-light text-decoration-none" target="_blank" href="https://twitter.com/"><i class="fab fa-twitter fa-lg fa-fw"></i></a>
+                        </li>
+                        <li class="list-inline-item rounded-circle text-center">
+                            <a class="text-light text-decoration-none" target="_blank" href="https://www.linkedin.com/"><i class="fab fa-linkedin fa-lg fa-fw"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="bg-light">
+        </div>
+        <div class="w-100 bg-black py-3">
+            <div class="container">
+                <div class="row pt-2">
+                    <div class="col-12">
+                        <p class="text-left text-light">
+                            Copyright &copy; 2024 Mathion Shop
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

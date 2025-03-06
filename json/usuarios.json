@@ -6,6 +6,13 @@
             "clave": "200445",
             "foto": "img\/perfiles\/SinPerfil.png",
             "tipo": "cliente"
+        },
+        {
+            "user": "MathiasGR27",
+            "correo": "mathiaselian530@hotmail.com",
+            "clave": "123456",
+            "foto": "img\/perfiles\/mathiaselian530@hotmail.com.png",
+            "tipo": "cliente"
         }
     ],
     "vendedor": [

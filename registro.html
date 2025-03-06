@@ -156,10 +156,16 @@
                             <input type="text" class="form-control" id="nombre" placeholder="Nombre y Apellido">
                         </div>
                         <div class="mb-3">
-                            <input type="correo" class="form-control" id="correo" placeholder="Correo electrónico">
+                            <input type="email" class="form-control" id="email" placeholder="Correo electrónico">
+                        </div>
+                        <div class="mb-3">
+                            <input type="password" class="form-control" id="password" placeholder="Contraseña">
                         </div>
                         <div class="mb-4">
-                            <input type="password" class="form-control" id="password" placeholder="Contraseña">
+                            <select id="tipo" class="form-control">
+                                <option value="cliente">Cliente</option>
+                                <option value="vendedor">Vendedor</option>
+                            </select>
                         </div>
                         <div class="form-check text-center mb-4">
                             <label class="form-check-label">
@@ -167,6 +173,7 @@
                                 Acepto Terminos y Condiciones
                             </label>
                         </div>
+                       
                         <button type="submit" class="btn btn-dark w-100">Enviar</button>
                     </form>
                 </div>
@@ -248,89 +255,119 @@
     <script src="js/jquery.easing.1.3.min.js"></script>
 
     <script>
-        $(document).ready(function() {
-            function mostrarError(elemento, mensaje) {
-                // Verifica si ya existe un mensaje de error en el mismo campo
-                if (elemento.siblings('.errormessage').length === 0) {
-                    if (elemento.attr('id') === 'terminos') {
-                        elemento.parent().after(`<div class="text-danger errormessage" style="display: none; margin-top: 5px;">${mensaje}</div>`);
-                    } else {
-                        elemento
-                            .addClass('errorinput')
-                            .after(`<div class="text-danger errormessage" style="display: none; margin-top: 5px;">${mensaje}</div>`);
-                    }
-                    $('.errormessage').fadeIn(500, 'easeOutExpo');
+    $(function() {
+        // Función para mostrar errores
+        function mostrarError(elemento, mensaje) {
+            elemento
+                .addClass('errorinput')
+                .after(`<div class="text-danger errormessage" style="display: none;">${mensaje}</div>`);
+            $('.errormessage').fadeIn(500, 'easeOutExpo');
+        }
+    
+        // Función para limpiar errores
+        function limpiarErrores() {
+            $('.errormessage').fadeOut(300, 'easeInExpo', function() { $(this).remove(); });
+            $('.errorinput').removeClass('errorinput');
+        }
+    
+        // Validación del formulario de registro
+        $("#registroForm").submit(function(event) {
+            limpiarErrores();
+            var nombre = $("#nombre").val();
+            var email = $("#email").val();
+            var password = $("#password").val();
+            var terminos = $("#terminos").prop("checked");
+            var tipo = $("#tipo").val();
+            var usuarios = [];
+            var valid = true;
+    
+            // Validación del campo nombre
+            if (nombre == "") {
+                mostrarError($("#nombre"), "El nombre y apellido son obligatorios.");
+                valid = false;
+            }
+    
+            // Validación del campo email
+            if (email == "") {
+                mostrarError($("#email"), "El correo electrónico es obligatorio.");
+                valid = false;
+            } else if (!email.includes('@')) {
+                mostrarError($("#email"), "El correo electrónico debe incluir un '@'.");
+                valid = false;
+            }
+    
+            // Validación del campo contraseña
+            if (password == "") {
+                mostrarError($("#password"), "La contraseña es obligatoria.");
+                valid = false;
+            } else if (password.length < 5 || password.length > 12) {
+                mostrarError($("#password"), "La contraseña debe tener entre 5 y 12 caracteres.");
+                valid = false;
+            }
+    
+            // Validación de términos y condiciones
+            if (!terminos) {
+                mostrarError($("#terminos"), "Debes aceptar los términos y condiciones.");
+                valid = false;
+            }
+    
+            if(valid){
+                registro();
+            }
+        });
+
+        async function registro(){
+            usuarios = await $.getJSON("json/usuarios.json");
+            usuarios = usuarios.cliente.concat(usuarios.vendedor);
+            for(let i=0;i<usuarios.length;i++){
+                if(usuarios[i].correo===$("#email").val()){
+                    mostrarError($("#email"), "Ese correo ya fue usado");
+                    return false;
                 }
             }
 
-            // Función para limpiar errores
-            function limpiarErrores() {
-                $('.errormessage').remove(); 
-                $('.errorinput').removeClass('errorinput'); 
-            }
-
-            // Validación del formulario de registro
-            $("#registroForm").submit(function(event) {
-                limpiarErrores(); 
-
-                var nombre = $("#nombre").val();
-                var email = $("#correo").val();
-                var password = $("#password").val();
-                var terminos = $("#terminos").prop("checked");
-                var valid = true;
-
-                // Validación del  nombre y apellido
-                if (nombre == "") {
-                    mostrarError($("#nombre"), "El nombre y apellido son obligatorios.");
-                    valid = false;
-                } else if (nombre.trim().split(' ').length < 2) { // Verifica si hay al menos dos palabras
-                    mostrarError($("#nombre"), "Debes ingresar nombre y apellido.");
-                    valid = false;
-                }
-
-                // Validación del correo
-                if (email == "") {
-                    mostrarError($("#correo"), "El correo electrónico es obligatorio.");
-                    valid = false;
-                } else if (!email.includes('@')) {
-                    mostrarError($("#correo"), "El correo electrónico debe incluir un '@'.");
-                    valid = false;
-                }
-
-                // Validación de la contraseña
-                if (password == "") {
-                    mostrarError($("#password"), "La contraseña es obligatoria.");
-                    valid = false;
-                } else if (password.length < 5 || password.length > 12) {
-                    mostrarError($("#password"), "La contraseña debe tener entre 5 y 12 caracteres.");
-                    valid = false;
-                }
-
-                // Validación de términos y condiciones
-                if (!terminos) {
-                    mostrarError($("#terminos"), "Debes aceptar los términos y condiciones.");
-                    valid = false;
-                }
-
-                if (!valid) {
-                    event.preventDefault(); 
+            $.ajax({
+                url: "php/usuarios.php?funcion=registro&tipo=" + $("#tipo").val(),
+                method: "POST",
+                data: {
+                    nombre: $("#nombre").val(),
+                    correo: $("#email").val(),
+                    pass: $("#password").val()
+                },
+                success: function (respuesta) { 
+                    console.log(respuesta);
+                }, 
+                error: function (xhr, status, error) { 
+                    console.error("Error en la solicitud AJAX:", status, error); 
                 }
             });
 
-            // Animación de entrada para el formulario de registro
-            $(".col-md-6").hide().fadeIn(1000, 'easeOutBounce');
+            usuarios = await $.getJSON("json/usuarios.json");
+            usuarios = usuarios.cliente.concat(usuarios.vendedor);
 
-            // Cambiar la opacidad del contenedor opuesto al pasar el mouse
-            $(".col-md-6").hover(
-                function() {
-                    $(this).siblings(".col-md-6").css({ "opacity": "0.5", "transition": "0.3s" });
-                },
-                function() {
-                    $(this).siblings(".col-md-6").css({ "opacity": "1", "transition": "0.3s" });
+            for(let i=0;i<usuarios.length;i++){
+                if(usuarios[i].correo===$("#email").val()){
+                    window.localStorage.setItem("credencial",JSON.stringify(usuarios[i]));
+                    window.location.replace("index.html");
                 }
-            );
-        });
-    </script>
-     
+            }
+        }
+
+        // Animación de entrada para el formulario de registro
+        $(".col-md-6").hide().fadeIn(1000, 'easeOutBounce'); // Cambié los selectores a .col-md-6
+    
+        // Cambiar la opacidad del contenedor opuesto al pasar el mouse
+        $(".col-md-6").hover(
+            function() {
+                // Cuando el mouse entra en un contenedor, el otro se pone opaco
+                $(this).siblings(".col-md-6").css({ "opacity": "0.5", "transition": "0.3s" });
+            },
+            function() {
+                // Cuando el mouse sale, restaurar la opacidad
+                $(this).siblings(".col-md-6").css({ "opacity": "1", "transition": "0.3s" });
+            }
+        );
+    });
+</script>
 </body>
 </html>

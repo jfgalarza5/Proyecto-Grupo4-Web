@@ -314,6 +314,7 @@
             if(valid){
                 registro();
             }
+            event.preventDefault();
         });
 
         async function registro(){
@@ -326,7 +327,7 @@
                 }
             }
 
-            $.ajax({
+            await $.ajax({
                 url: "php/usuarios.php?funcion=registro&tipo=" + $("#tipo").val(),
                 method: "POST",
                 data: {

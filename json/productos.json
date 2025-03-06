@@ -1,0 +1,149 @@
+{
+    "producto": [
+        {
+            "id": 1,
+            "nombre": "CAMISA NEGRA",
+            "precio": "20",
+            "img": "https:\/\/shop-cons.com\/cdn\/shop\/files\/0R0A0996_400x.jpg?v=1734130888",
+            "categoria": "hombre",
+            "correo": "mathion@gmail.com"
+        },
+        {
+            "id": 2,
+            "nombre": "GORRO AZUL",
+            "precio": "14.99",
+            "img": "https:\/\/shop-cons.com\/cdn\/shop\/files\/IMG-2622_400x.jpg?v=1734447152",
+            "categoria": "hombre",
+            "correo": "mathion@gmail.com"
+        },
+        {
+            "id": 3,
+            "nombre": "CHOMPA NEGRA",
+            "precio": "42.99",
+            "img": "https:\/\/shop-cons.com\/cdn\/shop\/files\/0R0A1453_400x.jpg?v=1734132855",
+            "categoria": "hombre",
+            "correo": "mathion@gmail.com"
+        },
+        {
+            "id": 4,
+            "nombre": "CHOMPA AMARILLA",
+            "precio": "40.99",
+            "img": "https:\/\/shop-cons.com\/cdn\/shop\/files\/BO2A2431_300x.jpg?v=1734184525",
+            "categoria": "hombre",
+            "correo": "mathion@gmail.com"
+        },
+        {
+            "id": 5,
+            "nombre": "CHOMPA AZUL",
+            "precio": "43.99",
+            "img": "https:\/\/shop-cons.com\/cdn\/shop\/files\/0R0A1388_400x.jpg?v=1734130852",
+            "categoria": "hombre",
+            "correo": "mathion@gmail.com"
+        },
+        {
+            "id": 6,
+            "nombre": "CHOMPA BLANCA",
+            "precio": "44.99",
+            "img": "https:\/\/shop-cons.com\/cdn\/shop\/files\/0R0A0616_300x.jpg?v=1726255077",
+            "categoria": "hombre",
+            "correo": "mathion@gmail.com"
+        },
+        {
+            "id": 7,
+            "nombre": "CHOMPA GRIS",
+            "precio": "22.99",
+            "img": "https:\/\/shop-cons.com\/cdn\/shop\/files\/0R0A1445_300x.jpg?v=1726258407",
+            "categoria": "hombre",
+            "correo": "mathion@gmail.com"
+        },
+        {
+            "id": 8,
+            "nombre": "CHOMPA OLIVIO",
+            "precio": "43.99",
+            "img": "https:\/\/shop-cons.com\/cdn\/shop\/files\/0R0A7842_400x.jpg?v=1726253414",
+            "categoria": "hombre",
+            "correo": "mathion@gmail.com"
+        },
+        {
+            "id": 9,
+            "nombre": "GORRO VERDE",
+            "precio": "15.99",
+            "img": "https:\/\/shop-cons.com\/cdn\/shop\/files\/IMG-2631_400x.jpg?v=1734447515",
+            "categoria": "hombre",
+            "correo": "mathion@gmail.com"
+        },
+        {
+            "id": 13,
+            "nombre": "GORRO VERDE",
+            "precio": "20",
+            "img": "https:\/\/shop-cons.com\/cdn\/shop\/files\/0R0A1407_400x.jpg?v=1734185927",
+            "categoria": "mujer",
+            "correo": "mathion@gmail.com"
+        },
+        {
+            "id": 14,
+            "nombre": "CHOMPA NEGRA",
+            "precio": "20",
+            "img": "https:\/\/shop-cons.com\/cdn\/shop\/files\/0R0A2528_400x.jpg?v=1734185630",
+            "categoria": "mujer",
+            "correo": "mathion@gmail.com"
+        },
+        {
+            "id": 15,
+            "nombre": "SHORT BOXER ROSA",
+            "precio": "14.99",
+            "img": "https:\/\/shop-cons.com\/cdn\/shop\/files\/0R0A0917_300x.jpg?v=1726253499",
+            "categoria": "mujer",
+            "correo": "mathion@gmail.com"
+        },
+        {
+            "id": 16,
+            "nombre": "CAMISA BLANCA",
+            "precio": "20.99",
+            "img": "https:\/\/shop-cons.com\/cdn\/shop\/files\/0R0A1184_400x.jpg?v=1726254365",
+            "categoria": "mujer",
+            "correo": "mathion@gmail.com"
+        },
+        {
+            "id": 17,
+            "nombre": "SHORT BOXER VERDE",
+            "precio": "15.99",
+            "img": "https:\/\/shop-cons.com\/cdn\/shop\/files\/0R0A0471_400x.jpg?v=1726254164",
+            "categoria": "mujer",
+            "correo": "mathion@gmail.com"
+        },
+        {
+            "id": 18,
+            "nombre": "MINIFALDA BEIGE",
+            "precio": "16.99",
+            "img": "https:\/\/shop-cons.com\/cdn\/shop\/files\/0R0A1668_300x.jpg?v=1700656514",
+            "categoria": "mujer",
+            "correo": "mathion@gmail.com"
+        },
+        {
+            "id": 19,
+            "nombre": "CHOMPA CREMA",
+            "precio": "44.99",
+            "img": "https:\/\/shop-cons.com\/cdn\/shop\/files\/0R0A0227_3834f43f-bce2-4874-92eb-0829982126d4_300x.jpg?v=1700659550",
+            "categoria": "mujer",
+            "correo": "mathion@gmail.com"
+        },
+        {
+            "id": 20,
+            "nombre": "MINIFALDA NEGRA",
+            "precio": "16.99",
+            "img": "https:\/\/shop-cons.com\/cdn\/shop\/files\/0R0A1805_400x.jpg?v=1700656621",
+            "categoria": "mujer",
+            "correo": "mathion@gmail.com"
+        },
+        {
+            "id": 21,
+            "nombre": "GORRA BLANCA",
+            "precio": "20",
+            "img": "https:\/\/shop-cons.com\/cdn\/shop\/files\/0R0A1005_300x.jpg?v=1726258579",
+            "categoria": "mujer",
+            "correo": "mathion@gmail.com"
+        }
+    ],
+    "id_max": 22
+}

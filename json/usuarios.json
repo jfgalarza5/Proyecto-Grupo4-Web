@@ -1,0 +1,27 @@
+{
+    "cliente": [
+        {
+            "user": "john",
+            "correo": "johngalarza1970@gmail.com",
+            "clave": "200445",
+            "foto": "img\/perfiles\/SinPerfil.png",
+            "tipo": "cliente"
+        }
+    ],
+    "vendedor": [
+        {
+            "user": "Mathion",
+            "correo": "mathion@gmail.com",
+            "clave": "admin",
+            "foto": "img\/perfiles\/mathion@gmail.com.png",
+            "tipo": "vendedor"
+        },
+        {
+            "user": "lajenni1",
+            "correo": "jennifer@gmail.com",
+            "clave": "admin",
+            "foto": "img\/perfiles\/jennifer@gmail.com.png",
+            "tipo": "vendedor"
+        }
+    ]
+}

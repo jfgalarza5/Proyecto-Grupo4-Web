@@ -1,18 +1,80 @@
+<?php
+    $producto_encontrado = false;
+    if(isset($_GET["id"])){
+        $fichero = "json/productos.json";
+        $file = file_get_contents($fichero);
+        $productos = json_decode($file,true);
+        foreach($productos["producto"] as $index => $e){
+            if($e["id"] == $_GET["id"]){
+                $producto = $e;
+                $producto_encontrado = true;
+            }
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Producto</title>
+    <title><?php
+        if($producto_encontrado){
+            echo $producto["nombre"];
+        }else{
+            echo "Producto no disponible";
+        }
+    ?></title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
     <script src="https://kit.fontawesome.com/5f232b4c5b.js" crossorigin="anonymous"></script>
     <script src="js/JQueryV3.7.1.js"></script>
     <script src="js/jquery.easing.1.3.min.js"></script>
     <script>
+        var user;
+        mostrarComentario();
+        async function mostrarComentario(){
+            comentarios = await $.getJSON("json/comentarios.json");
+            usuarios = await $.getJSON("json/usuarios.json");
+            usuarios = usuarios.cliente.concat(usuarios.vendedor);
+            comentarios.forEach(c => {
+                if(c.id_producto != <?php echo $_GET["id"] ?>) return;
+                let $img;
+                let $h4;
+                usuarios.forEach(u => {
+                    if(u.correo == c.correo){
+                        $img = $("<img>").attr("src", u.foto);
+                        $h4 = $("<h4>").text(u.user);
+                        return;
+                    }
+                });
+                let $li = $("<li>").addClass("item_comentario");
+                let $div_coment = $("<div>").addClass("comentario");
+                let $div_star = $("<div>").addClass("stars-rating");
+                let $p = $("<p>").text(c.texto);
+
+                for (let i = 1; i <= 5; i++) {
+                    if (i <= c.puntaje) {
+                        $div_star.append("★");
+                    } else {
+                        $div_star.append("☆");
+                    }
+                }
+
+                $div_coment.append($h4, $div_star, $p);
+                $li.append($img, $div_coment);
+
+                $("#lista_comentario").append($li); 
+            });
+        }
+
         $(function () {
             let puntaje = 0;
+            if(JSON.parse(window.localStorage.getItem("credencial"))){
+                user = JSON.parse(window.localStorage.getItem("credencial"));
+            }else{
+                $(".form_comentario").hide();
+            }
             $(".estrella").click(function () {
                 for (let i = 1; i <= 5; i++) {
                     let star = $("#star" + i + " + label");
@@ -59,25 +121,32 @@
             });
 
             $("#btn_comentar").click(function () {
-                let $li = $("<li>").addClass("item_comentario");
-                let $img = $("<img>").attr("src", "img/perfilesImagenes/sinPerfil.jpg");
-                let $div_coment = $("<div>").addClass("comentario");
-                let $h4 = $("<h4>").text("Anonimo");
-                let $div_star = $("<div>").addClass("stars-rating");
-                let $p = $("<p>").text($("#texto_comentario").val());
-
-                for (let i = 1; i <= 5; i++) {
-                    if (i <= puntaje) {
-                        $div_star.append("★");
-                    } else {
-                        $div_star.append("☆");
-                    }
+                if(puntaje==0){
+                    $("#mensajeError").removeClass("d-none").hide().fadeIn();
+                    $("#mensajeError").text("El puntaje minimo es de una estrella");
+                    setTimeout(function(){
+                        $("#mensajeError").fadeOut(function(){
+                            $(this).addClass("d-none");
+                        });
+                    }, 3000);
+                    return;
                 }
-
-                $div_coment.append($h4, $div_star, $p);
-                $li.append($img, $div_coment);
-
-                $("#lista_comentario").append($li);
+                $.ajax({
+                    url: "php/productos.php?funcion=comentar",
+                    method: "POST",
+                    data: {
+                        id_producto: <?php echo $_GET["id"]?>,
+                        correo: user.correo,
+                        texto: $("#texto_comentario").val(),
+                        puntaje: puntaje
+                    },
+                    success: function (respuesta) { 
+                        window.location.reload(true);
+                    }, 
+                    error: function (xhr, status, error) { 
+                        console.error("Error en la solicitud AJAX:", status, error); 
+                    }
+                });
             });
 
             $("#num_producto").on("input", function () {
@@ -246,54 +315,68 @@
     </div>
 
     <section class="products m-5">
-        <div class="pagina_producto">
-            <div class="contenedor_producto">
-                <div>
-                    <img id="producto_img" src="https://shop-cons.com/cdn/shop/files/IMG-2631_400x.jpg?v=1734447515">
-                </div>
-                <div class="detalle_producto mt-4">
-                    <h1 id="nombre">BUCKET VERDE ♂</h1>
-                    <p id="precio" class="precio_producto">$15.99</p>
-                    <div class="cantidad">
-                        <input type="number" name="" id="num_producto" class="m-3" min="1" value="1">
-                        <a class="btn btn-primary" id="btn_add">Agregar al Carrito</a>
+        <?php
+            if($producto_encontrado){
+                if($producto["categoria"]=="hombre"){
+                    $link = "hombres.html";
+                    $categoria = "Hombres";
+                }else{
+                    $link = "mujeres.html";
+                    $categoria = "Mujeres";
+                }
+                echo 
+                '<div class="pagina_producto">
+                    <div class="contenedor_producto">
+                        <div>
+                            <img id="producto_img" src="'.$producto["img"].'">
+                        </div>
+                        <div class="detalle_producto mt-4">
+                            <h1 id="nombre">'.$producto["nombre"].'</h1>
+                            <p id="precio" class="precio_producto">$'.$producto["precio"].'</p>
+                            <div class="cantidad">
+                                <input type="number" name="" id="num_producto" class="m-3" min="1" value="1">
+                                <a class="btn btn-primary" id="btn_add">Agregar al Carrito</a>
+                            </div>
+                            <hr class="mb-3" style="margin: 0;">
+                            <p>Categoría: <a id="link_categoria" href="'.$link.'">'.$categoria.'</a></p>
+                        </div>
                     </div>
-                    <hr class="mb-3" style="margin: 0;">
-                    <p>Categoría: <a id="link_categoria" href="hombres.html">Hombres</a></p>
-                </div>
-            </div>
 
-            <div class="barra_derecha">
-                <div class="producto_similar">
-                    <h3>Productos Similares</h3>
-                    <p>No hay productos similares.</p>
+                    <div class="barra_derecha">
+                        <div class="producto_similar">
+                            <h3>Productos Similares</h3>
+                            <p>No hay productos similares.</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="seccion_comentario">
-            <h3>Comentarios</h3>
-            <form class="form_comentario">
-                <textarea id="texto_comentario" placeholder="Escribe tu comentario aquí..."></textarea>
-                <div class="puntaje">
-                    <span>Calificación:</span>
-                    <input type="radio" name="estrella" id="star1" value="1" class="estrella"><label for="star1"><i
-                            class="fas fa-star"></i></label>
-                    <input type="radio" name="estrella" id="star2" value="2" class="estrella"><label for="star2"><i
-                            class="fas fa-star"></i></label>
-                    <input type="radio" name="estrella" id="star3" value="3" class="estrella"><label for="star3"><i
-                            class="fas fa-star"></i></label>
-                    <input type="radio" name="estrella" id="star4" value="4" class="estrella"><label for="star4"><i
-                            class="fas fa-star"></i></label>
-                    <input type="radio" name="estrella" id="star5" value="5" class="estrella"><label for="star5"><i
-                            class="fas fa-star"></i></label>
-                </div>
-                <button id="btn_comentar" class="btn btn-primary">Enviar Comentario</button>
-            </form>
-            <ul id="lista_comentario"></ul>
-        </div>
+                <div class="seccion_comentario">
+                    <h3 class="mb-4">Comentarios</h3>
+                    <form class="form_comentario">
+                        <textarea id="texto_comentario" placeholder="Escribe tu comentario aquí..."></textarea>
+                        <div class="puntaje">
+                            <span>Calificación:</span>
+                            <input type="radio" name="estrella" id="star1" value="1" class="estrella"><label for="star1"><i
+                                    class="fas fa-star"></i></label>
+                            <input type="radio" name="estrella" id="star2" value="2" class="estrella"><label for="star2"><i
+                                    class="fas fa-star"></i></label>
+                            <input type="radio" name="estrella" id="star3" value="3" class="estrella"><label for="star3"><i
+                                    class="fas fa-star"></i></label>
+                            <input type="radio" name="estrella" id="star4" value="4" class="estrella"><label for="star4"><i
+                                    class="fas fa-star"></i></label>
+                            <input type="radio" name="estrella" id="star5" value="5" class="estrella"><label for="star5"><i
+                                    class="fas fa-star"></i></label>
+                        </div>
+                        <button id="btn_comentar" class="btn btn-primary">Enviar Comentario</button>
+                    </form>
+                    <div id="mensajeError" class="alert alert-danger mt-3 d-none"></div>
+                    <ul id="lista_comentario"></ul>
+                </div>';
+            }else{
+                echo "<h3 class='text-center' style='margin: 200px; color: #aaa'>Producto no disponible</h3>";
+            }
+        ?>
     </section>
-
     <footer class="bg-dark">
         <div class="container">
             <div class="row justify-content-around">
